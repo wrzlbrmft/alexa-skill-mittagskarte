@@ -1,0 +1,16 @@
+{
+  "name": "alexa-skill-mittagskarte",
+  "version": "0.0.0",
+  "dependencies": {
+    "alexa-sdk": "*"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "typings": "*"
+  },
+  "scripts": {
+    "postinstall": "typings install && tsc",
+    "build": "tsc",
+    "clean": "rm -rf build node_modules typings"
+  }
+}
