@@ -1,8 +1,4 @@
 {
-	"globalDependencies": {
-		"node": "registry:dt/node"
-	},
-	"dependencies": {
-		"alexa-sdk": "registry:dt/alexa-sdk"
-	}
+	"globalDependencies": {},
+	"dependencies": {}
 }

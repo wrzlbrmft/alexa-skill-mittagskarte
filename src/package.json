@@ -2,7 +2,11 @@
   "name": "alexa-skill-mittagskarte",
   "version": "0.0.0",
   "dependencies": {
-    "alexa-sdk": "*"
+    "alexa-sdk": "*",
+    "cheerio": "*",
+    "@types/alexa-sdk": "*",
+    "@types/cheerio": "*",
+    "@types/node": "*"
   },
   "devDependencies": {
     "typescript": "*",
