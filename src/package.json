@@ -16,7 +16,8 @@
   },
   "scripts": {
     "postinstall": "typings install && tsc",
-    "build": "tsc",
-    "clean": "rm -rf build node_modules typings"
+    "build": "rm -rf build && tsc",
+    "package": "mkdir -p target && cd build && zip -FSr \"../target/${npm_package_name}_${npm_package_version}.zip\" . && cd ..",
+    "clean": "rm -rf build node_modules target typings"
   }
 }
