@@ -4,9 +4,11 @@
   "dependencies": {
     "alexa-sdk": "*",
     "cheerio": "*",
+    "request": "*",
     "@types/alexa-sdk": "*",
     "@types/cheerio": "*",
-    "@types/node": "*"
+    "@types/node": "*",
+    "@types/request": "*"
   },
   "devDependencies": {
     "typescript": "*",
