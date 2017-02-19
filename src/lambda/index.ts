@@ -1,6 +1,5 @@
 import { Location } from "./Location";
 import { LocationManager } from "./LocationManager";
-
 import { ParserExample } from "./ParserExample";
 import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
 import { ParserCrowns } from "./ParserCrowns";
