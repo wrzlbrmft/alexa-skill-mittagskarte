@@ -1,19 +1,18 @@
 import { AbstractParser } from "./AbstractParser";
-import { MenuWeek } from "./MenuWeek";
 import { MenuDay } from "./MenuDay";
 import { Weekday } from "./Weekday";
+import { MenuWeek } from "./MenuWeek";
 
 export class ParserNachtkantine extends AbstractParser {
 	public constructor(html?: string) {
 		super(html);
 	}
 
-
-	public parseMenuWeek(): MenuWeek {
+	public parseMenuDay(weekday: Weekday): MenuDay {
 		return null;
 	}
 
-	public parseMenuDay(weekday: Weekday): MenuDay {
+	public parseMenuWeek(): MenuWeek {
 		return null;
 	}
 }
