@@ -1,3 +1,7 @@
+import { MenuWeek } from "./MenuWeek";
+import { MenuDay } from "./MenuDay";
+import { Weekday } from "./Weekday";
+
 export abstract class AbstractParser {
 	private html: string;
 
@@ -14,4 +18,8 @@ export abstract class AbstractParser {
 	public setHtml(html: string): void {
 		this.html = html;
 	}
+
+	public abstract parseMenuWeek(): MenuWeek;
+
+	public abstract parseMenuDay(weekday: Weekday): MenuDay;
 }
