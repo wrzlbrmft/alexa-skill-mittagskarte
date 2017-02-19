@@ -5,7 +5,7 @@ import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
 import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 
-let locationManager = new LocationManager();
+let locationManager: LocationManager = new LocationManager();
 
 locationManager.multiPut(
 	["Alte Raffinerie", "Storchenburg"],
