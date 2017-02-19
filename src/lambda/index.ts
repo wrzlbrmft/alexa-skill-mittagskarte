@@ -1,11 +1,18 @@
-import { LocationManager } from "./LocationManager";
 import { Location } from "./Location";
+import { LocationManager } from "./LocationManager";
 
+import { ParserExample } from "./ParserExample";
 import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
 import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 
 let locationManager: LocationManager = new LocationManager();
+
+locationManager.put(
+	"Beispiel",
+	new Location("zum Beispiel",
+		null,
+		new ParserExample()));
 
 locationManager.multiPut(
 	["Alte Raffinerie", "Storchenburg"],

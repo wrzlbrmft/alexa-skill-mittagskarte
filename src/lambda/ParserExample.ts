@@ -3,7 +3,7 @@ import { MenuWeek } from "./MenuWeek";
 import { MenuDay } from "./MenuDay";
 import { Weekday } from "./Weekday";
 
-export class ParserAlteRaffinerie extends AbstractParser {
+export class ParserExample extends AbstractParser {
 	public constructor(html?: string) {
 		super(html);
 	}
