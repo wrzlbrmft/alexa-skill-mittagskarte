@@ -1,5 +1,5 @@
 export class StringMap<T> {
-	private map: { [key: string]: T };
+	private map: { [key: string]: T } = {};
 
 	public constructor() {}
 

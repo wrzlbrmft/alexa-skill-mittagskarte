@@ -1,5 +1,5 @@
 export class NumberMap<T> {
-	private map: { [key: number]: T };
+	private map: { [key: number]: T } = {};
 
 	public constructor() {}
 

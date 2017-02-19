@@ -1,7 +1,7 @@
 import { Dish } from "./Dish";
 
 export class MenuDay {
-	private dishes: Array<Dish>;
+	private dishes: Array<Dish> = [];
 
 	public constructor(...dishes: Array<Dish>) {
 		if (dishes && dishes.length) {
