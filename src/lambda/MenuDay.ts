@@ -3,7 +3,11 @@ import { Dish } from "./Dish";
 export class MenuDay {
 	private dishes: Array<Dish>;
 
-	public constructor() {}
+	public constructor(...dishes: Array<Dish>) {
+		if (dishes && dishes.length) {
+			this.setDishes(dishes);
+		}
+	}
 
 	public getDishes(): Array<Dish> {
 		return this.dishes;
