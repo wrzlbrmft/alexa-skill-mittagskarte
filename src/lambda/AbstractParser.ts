@@ -1,5 +1,8 @@
+import { MenuWeek } from "./MenuWeek";
+
 export abstract class AbstractParser {
 	private html: string;
+	private menuWeek: MenuWeek = new MenuWeek();
 
 	public constructor(html?: string) {
 		if (html) {
@@ -13,6 +16,14 @@ export abstract class AbstractParser {
 
 	public setHtml(html: string): void {
 		this.html = html;
+	}
+
+	public getMenuWeek(): MenuWeek {
+		return this.menuWeek;
+	}
+
+	public setMenuWeek(menuWeek: MenuWeek): void {
+		this.menuWeek = menuWeek;
 	}
 
 	public abstract parse(): void;
