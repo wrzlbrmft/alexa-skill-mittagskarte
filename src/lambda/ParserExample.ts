@@ -12,7 +12,7 @@ export class ParserExample extends AbstractParser {
 		for (let weekday: number = Weekday.Monday; weekday <= Weekday.Friday; weekday++) {
 			let menuDay: MenuDay = new MenuDay();
 
-			for (let i: number = 0; i < 3; i++) {
+			for (let i: number = 1; i <= 3; i++) {
 				menuDay.addDish(new Dish(`Menü ${i} am ${weekdays.get(weekday)}`));
 			}
 
