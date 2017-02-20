@@ -5,6 +5,8 @@ import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
 import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 
+import * as request from "request";
+
 let locationManager: LocationManager = new LocationManager();
 
 locationManager.put(
@@ -32,3 +34,10 @@ locationManager.put(
 		"http://www.nachtkantine.de/mittagskarte/",
 		new ParserNachtkantine())
 );
+
+let location: Location = locationManager.get("Beispiel");
+request(location.getUrl(), (error, response, body) => {
+	let parser = location.getParser();
+	parser.setHtml(body);
+	parser.parse();
+});
