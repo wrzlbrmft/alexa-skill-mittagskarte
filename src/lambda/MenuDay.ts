@@ -18,6 +18,6 @@ export class MenuDay {
 	}
 
 	public addDish(dish: Dish): void {
-		this.getDishes().concat(dish);
+		this.getDishes().push(dish);
 	}
 }
