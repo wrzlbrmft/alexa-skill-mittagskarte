@@ -17,5 +17,5 @@ export abstract class AbstractParser {
 		this.html = html;
 	}
 
-	public abstract parse(): MenuWeek;
+	public abstract parseMenuWeek(): MenuWeek;
 }

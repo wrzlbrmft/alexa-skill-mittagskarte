@@ -6,7 +6,7 @@ export class ParserNachtkantine extends AbstractParser {
 		super(html);
 	}
 
-	public parse(): MenuWeek {
+	public parseMenuWeek(): MenuWeek {
 		return new MenuWeek();
 	}
 }
