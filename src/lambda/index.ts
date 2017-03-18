@@ -37,7 +37,6 @@ locations.put(
 
 let location: Location = locations.get("Beispiel");
 request(location.getUrl(), (error, response, body) => {
-	let parser = location.getParser();
-	parser.setHtml(body);
-	parser.parse();
+	location.setParserHtml(body);
+	location.loadMenuWeek();
 });

@@ -1,5 +1,7 @@
 import { AbstractParser } from "./AbstractParser";
 import { MenuWeek } from "./MenuWeek";
+import { Weekday } from "./Weekday";
+import { MenuDay } from "./MenuDay";
 
 export class Location {
 	private nameAt: string;
@@ -43,5 +45,17 @@ export class Location {
 
 	public setMenuWeek(menuWeek: MenuWeek): void {
 		this.menuWeek = menuWeek;
+	}
+
+	public setParserHtml(html: string): void {
+		this.getParser().setHtml(html);
+	}
+
+	public loadMenuWeek(): void {
+		this.setMenuWeek(this.getParser().parseMenuWeek());
+	}
+
+	public getMenuDay(weekday: Weekday): MenuDay {
+		return this.getMenuWeek().get(weekday);
 	}
 }

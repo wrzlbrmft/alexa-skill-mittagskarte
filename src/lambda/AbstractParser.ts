@@ -1,3 +1,5 @@
+import { Weekday } from "./Weekday";
+import { MenuDay } from "./MenuDay";
 import { MenuWeek } from "./MenuWeek";
 
 export abstract class AbstractParser {
@@ -17,5 +19,14 @@ export abstract class AbstractParser {
 		this.html = html;
 	}
 
-	public abstract parseMenuWeek(): MenuWeek;
+	public abstract parseMenuDay(weekday: Weekday): MenuDay;
+
+	public parseMenuWeek(): MenuWeek {
+		let menuWeek: MenuWeek = new MenuWeek();
+		for (let weekday: number = Weekday.Monday; weekday <= Weekday.Friday; weekday++) {
+			menuWeek.put(weekday, this.parseMenuDay(weekday));
+		}
+
+		return menuWeek;
+	}
 }

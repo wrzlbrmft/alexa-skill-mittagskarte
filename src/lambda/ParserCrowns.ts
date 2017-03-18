@@ -1,12 +1,13 @@
 import { AbstractParser } from "./AbstractParser";
-import { MenuWeek } from "./MenuWeek";
+import { Weekday } from "./Weekday";
+import { MenuDay } from "./MenuDay";
 
 export class ParserCrowns extends AbstractParser {
 	public constructor(html?: string) {
 		super(html);
 	}
 
-	public parseMenuWeek(): MenuWeek {
-		return new MenuWeek();
+	public parseMenuDay(weekday: Weekday): MenuDay {
+		return new MenuDay();
 	}
 }
