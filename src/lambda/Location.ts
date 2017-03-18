@@ -1,9 +1,11 @@
 import { AbstractParser } from "./AbstractParser";
+import { MenuWeek } from "./MenuWeek";
 
 export class Location {
 	private nameAt: string;
 	private url: string;
 	private parser: AbstractParser;
+	private menuWeek: MenuWeek = new MenuWeek();
 
 	public constructor(nameAt: string, url: string, parser: AbstractParser) {
 		this.setNameAt(nameAt);
@@ -33,5 +35,13 @@ export class Location {
 
 	public setParser(parser: AbstractParser): void {
 		this.parser = parser;
+	}
+
+	public getMenuWeek(): MenuWeek {
+		return this.menuWeek;
+	}
+
+	public setMenuWeek(menuWeek: MenuWeek): void {
+		this.menuWeek = menuWeek;
 	}
 }

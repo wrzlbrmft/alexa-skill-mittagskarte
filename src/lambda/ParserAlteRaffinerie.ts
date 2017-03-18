@@ -1,9 +1,12 @@
 import { AbstractParser } from "./AbstractParser";
+import { MenuWeek } from "./MenuWeek";
 
 export class ParserAlteRaffinerie extends AbstractParser {
 	public constructor(html?: string) {
 		super(html);
 	}
 
-	public parse(): void {}
+	public parse(): MenuWeek {
+		return new MenuWeek();
+	}
 }
