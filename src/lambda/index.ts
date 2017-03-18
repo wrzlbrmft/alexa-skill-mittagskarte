@@ -1,41 +1,41 @@
 import { Location } from "./Location";
-import { LocationManager } from "./LocationManager";
 import { ParserExample } from "./ParserExample";
 import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
 import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 
 import * as request from "request";
+import { MultiStringMap } from "./MultiStringMap";
 
-let locationManager: LocationManager = new LocationManager();
+let locations: MultiStringMap<Location> = new MultiStringMap<Location>();
 
-locationManager.put(
+locations.put(
 	"Beispiel",
 	new Location("zum Beispiel",
 		null,
 		new ParserExample()));
 
-locationManager.multiPut(
+locations.multiPut(
 	["Alte Raffinerie", "Storchenburg"],
 	new Location("in der Alten Raffinerie",
 		"http://www.alte-raffinerie.de/index.php/Essen.html",
 		new ParserAlteRaffinerie()));
 
-locationManager.put(
+locations.put(
 	"Crowns",
 	new Location("im Crowns",
 		"http://www.crownsrestaurant.de/wochenkarte/",
 		new ParserCrowns())
 );
 
-locationManager.put(
+locations.put(
 	"Nachtkantine",
 	new Location("in der Nachtkantine",
 		"http://www.nachtkantine.de/mittagskarte/",
 		new ParserNachtkantine())
 );
 
-let location: Location = locationManager.get("Beispiel");
+let location: Location = locations.get("Beispiel");
 request(location.getUrl(), (error, response, body) => {
 	let parser = location.getParser();
 	parser.setHtml(body);
