@@ -1,3 +1,4 @@
+import { MultiStringMap } from "./MultiStringMap";
 import { Location } from "./Location";
 import { ParserExample } from "./ParserExample";
 import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
@@ -5,7 +6,6 @@ import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 
 import * as request from "request";
-import { MultiStringMap } from "./MultiStringMap";
 
 let locations: MultiStringMap<Location> = new MultiStringMap<Location>();
 
