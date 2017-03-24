@@ -8,6 +8,10 @@ export class ParserNachtkantine extends AbstractParser {
 	}
 
 	public parseMenuDay(weekday: Weekday): MenuDay {
-		return new MenuDay();
+		let menuDay: MenuDay = new MenuDay();
+
+		// ...
+
+		return menuDay;
 	}
 }
