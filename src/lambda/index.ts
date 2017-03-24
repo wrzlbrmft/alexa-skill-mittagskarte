@@ -4,6 +4,7 @@ import { ParserExample } from "./ParserExample";
 import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
 import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
+import { Weekday } from "./Weekday";
 
 import * as request from "request";
 
@@ -29,8 +30,10 @@ locations.put("Nachtkantine",
 		"http://www.nachtkantine.de/mittagskarte/",
 		new ParserNachtkantine()));
 
-let location: Location = locations.get("Beispiel");
+// let location: Location = locations.get("Beispiel");
+let location: Location = locations.get("Alte Raffinerie");
 request(location.getUrl(), (error, response, body) => {
 	location.getParser().setHtml(body);
 	location.loadMenuWeek();
+	console.log(location.getMenuWeek().get(Weekday.Monday));
 });

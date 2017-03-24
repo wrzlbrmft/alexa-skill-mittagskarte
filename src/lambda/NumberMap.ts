@@ -1,21 +1,9 @@
-export class NumberMap<T> {
-	private items: { [key: number]: T } = {};
+import { AbstractMap } from "./AbstractMap";
 
-	public constructor() {}
+export class NumberMap<T> extends AbstractMap<T> {
+	protected items: { [key: number]: T } = {};
 
-	public getAll(): { [key: number]: T } {
-		return this.items;
-	}
-
-	public setAll(items: { [key: number]: T }): void {
-		this.items = items;
-	}
-
-	public get(key: number): T {
-		return this.items[key];
-	}
-
-	public put(key: number, value: T): void {
-		this.items[key] = value;
+	public constructor() {
+		super();
 	}
 }
