@@ -22,13 +22,12 @@ export class ParserAlteRaffinerie extends AbstractParser {
 			if (isWeekday) {
 				if ("p" == element.name.toLowerCase()) {
 					let name = $(element).text()
-						.replace(/(\r?\n|\r)/g, " ")
-						.trim()
-						.split("\t")[0];
-
-					name = name.replace(/&/g, "und");
-					name = name.replace(/ – /g, "-");
-					name = name.replace(/\s+/g, " ");
+						.replace(/(\r?\n|\r)/g, " ")	// remove unnecessary newlines
+						.trim()							// could have started/ended with newline
+						.split("\t")[0]					// menu names and prices are split by one or more tabs
+						.replace(/&/g, "und")			// use "und" instead of ampersands
+						.replace(/ – /g, "-")			// remove typographic dashes
+						.replace(/\s+/g, " ");			// deduplicate whitespace
 
 					if ("" == name) {
 						isWeekday = false;

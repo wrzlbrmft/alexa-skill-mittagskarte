@@ -35,5 +35,6 @@ let location: Location = locations.get("Alte Raffinerie");
 request(location.getUrl(), (error, response, body) => {
 	location.getParser().setHtml(body);
 	location.loadMenuWeek();
+
 	console.log(location.getMenuWeek().get(Weekday.Monday));
 });
