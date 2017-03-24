@@ -1,4 +1,4 @@
-export class Dish {
+export class Menu {
 	private name: string;
 
 	public constructor(name: string) {

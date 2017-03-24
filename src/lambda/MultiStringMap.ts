@@ -5,9 +5,9 @@ export class MultiStringMap<T> extends StringMap<T> {
 		super();
 	}
 
-	public multiPut(keys: Array<string>, value: T) {
-		for (let key of keys) {
+	public multiPut(keys: Array<string>, value: T): void {
+		keys.forEach((key: string) => {
 			this.put(key, value);
-		}
+		});
 	}
 }

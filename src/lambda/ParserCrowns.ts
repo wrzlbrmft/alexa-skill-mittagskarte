@@ -3,8 +3,8 @@ import { Weekday } from "./Weekday";
 import { MenuDay } from "./MenuDay";
 
 export class ParserCrowns extends AbstractParser {
-	public constructor(html?: string) {
-		super(html);
+	public constructor() {
+		super();
 	}
 
 	public parseMenuDay(weekday: Weekday): MenuDay {

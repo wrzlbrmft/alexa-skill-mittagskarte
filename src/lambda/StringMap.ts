@@ -1,21 +1,21 @@
 export class StringMap<T> {
-	private map: { [key: string]: T } = {};
+	private items: { [key: string]: T } = {};
 
 	public constructor() {}
 
-	public getMap(): { [key: string]: T } {
-		return this.map;
+	public getAll(): { [key: string]: T } {
+		return this.items;
 	}
 
-	public setMap(map: { [key: string]: T }): void {
-		this.map = map;
+	public setAll(items: { [key: string]: T }): void {
+		this.items = items;
 	}
 
 	public get(key: string): T {
-		return this.map[key];
+		return this.items[key];
 	}
 
 	public put(key: string, value: T): void {
-		this.map[key] = value;
+		this.items[key] = value;
 	}
 }

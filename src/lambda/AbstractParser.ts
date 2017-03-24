@@ -5,11 +5,7 @@ import { MenuWeek } from "./MenuWeek";
 export abstract class AbstractParser {
 	private html: string;
 
-	public constructor(html?: string) {
-		if (html) {
-			this.setHtml(html);
-		}
-	}
+	public constructor() {}
 
 	public getHtml(): string {
 		return this.html;

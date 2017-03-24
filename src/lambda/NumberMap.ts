@@ -1,21 +1,21 @@
 export class NumberMap<T> {
-	private map: { [key: number]: T } = {};
+	private items: { [key: number]: T } = {};
 
 	public constructor() {}
 
-	public getMap(): { [key: number]: T } {
-		return this.map;
+	public getAll(): { [key: number]: T } {
+		return this.items;
 	}
 
-	public setMap(map: { [key: number]: T }): void {
-		this.map = map;
+	public setAll(items: { [key: number]: T }): void {
+		this.items = items;
 	}
 
 	public get(key: number): T {
-		return this.map[key];
+		return this.items[key];
 	}
 
 	public put(key: number, value: T): void {
-		this.map[key] = value;
+		this.items[key] = value;
 	}
 }

@@ -47,10 +47,6 @@ export class Location {
 		this.menuWeek = menuWeek;
 	}
 
-	public setParserHtml(html: string): void {
-		this.getParser().setHtml(html);
-	}
-
 	public loadMenuWeek(): void {
 		this.setMenuWeek(this.getParser().parseMenuWeek());
 	}

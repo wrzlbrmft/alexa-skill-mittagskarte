@@ -10,10 +10,10 @@ export enum Weekday {
 	Saturday
 }
 
-export let weekdays: NumberMap<string> = new NumberMap<string>();
+export const weekdays: NumberMap<string> = new NumberMap<string>();
 weekdays.put(Weekday.Sunday, "Sonntag");
 weekdays.put(Weekday.Monday, "Montag");
-weekdays.put(Weekday.Tuesday, "Dientag");
+weekdays.put(Weekday.Tuesday, "Dienstag");
 weekdays.put(Weekday.Wednesday, "Mittwoch");
 weekdays.put(Weekday.Thursday, "Donnerstag");
 weekdays.put(Weekday.Friday, "Freitag");

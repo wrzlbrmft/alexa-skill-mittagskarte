@@ -9,34 +9,28 @@ import * as request from "request";
 
 let locations: MultiStringMap<Location> = new MultiStringMap<Location>();
 
-locations.put(
-	"Beispiel",
+locations.put("Beispiel",
 	new Location("zum Beispiel",
 		null,
 		new ParserExample()));
 
-locations.multiPut(
-	["Alte Raffinerie", "Storchenburg"],
+locations.multiPut(["Alte Raffinerie", "Storchenburg"],
 	new Location("in der Alten Raffinerie",
 		"http://www.alte-raffinerie.de/index.php/Essen.html",
 		new ParserAlteRaffinerie()));
 
-locations.put(
-	"Crowns",
+locations.put("Crowns",
 	new Location("im Crowns",
 		"http://www.crownsrestaurant.de/wochenkarte/",
-		new ParserCrowns())
-);
+		new ParserCrowns()));
 
-locations.put(
-	"Nachtkantine",
+locations.put("Nachtkantine",
 	new Location("in der Nachtkantine",
 		"http://www.nachtkantine.de/mittagskarte/",
-		new ParserNachtkantine())
-);
+		new ParserNachtkantine()));
 
 let location: Location = locations.get("Beispiel");
 request(location.getUrl(), (error, response, body) => {
-	location.setParserHtml(body);
+	location.getParser().setHtml(body);
 	location.loadMenuWeek();
 });

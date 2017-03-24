@@ -1,23 +1,8 @@
-import { Dish } from "./Dish";
+import { List } from "./List";
+import { Menu } from "./Menu";
 
-export class MenuDay {
-	private dishes: Array<Dish> = [];
-
-	public constructor(...dishes: Array<Dish>) {
-		if (dishes && dishes.length) {
-			this.setDishes(dishes);
-		}
-	}
-
-	public getDishes(): Array<Dish> {
-		return this.dishes;
-	}
-
-	public setDishes(dishes: Array<Dish>): void {
-		this.dishes = dishes;
-	}
-
-	public addDish(dish: Dish): void {
-		this.getDishes().push(dish);
+export class MenuDay extends List<Menu> {
+	public constructor(...items: Array<Menu>) {
+		super(...items);
 	}
 }
