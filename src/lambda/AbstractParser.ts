@@ -1,11 +1,15 @@
-import { Weekday } from "./Weekday";
-import { MenuDay } from "./MenuDay";
-import { MenuWeek } from "./MenuWeek";
+import { Weekday, weekdays } from "./Weekday";
+import { Menu } from "./Menu";
+import { WeeklyMenu } from "./WeeklyMenu";
 
 export abstract class AbstractParser {
 	private html: string;
 
-	public constructor() {}
+	public constructor(html?: string) {
+		if (html) {
+			this.setHtml(html);
+		}
+	}
 
 	public getHtml(): string {
 		return this.html;
@@ -15,14 +19,16 @@ export abstract class AbstractParser {
 		this.html = html;
 	}
 
-	public abstract parseMenuDay(weekday: Weekday): MenuDay;
+	public abstract parseStartDate(): string;
 
-	public parseMenuWeek(): MenuWeek {
-		let menuWeek: MenuWeek = new MenuWeek();
-		for (let weekday: number = Weekday.Monday; weekday <= Weekday.Friday; weekday++) {
-			menuWeek.put(weekday, this.parseMenuDay(weekday));
-		}
+	public abstract parseDailyMenus(weekday: Weekday): Array<Menu>;
 
-		return menuWeek;
+	public parseWeeklyMenu(): WeeklyMenu {
+		let weeklyMenu: WeeklyMenu = new WeeklyMenu(this.parseStartDate());
+		weekdays.forEach((key: number) => {
+			weeklyMenu.getDailyMenus().put(key, this.parseDailyMenus(key));
+		});
+
+		return weeklyMenu;
 	}
 }

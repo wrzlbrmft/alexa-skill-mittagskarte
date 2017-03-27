@@ -1,17 +1,21 @@
 import { AbstractParser } from "./AbstractParser";
 import { Weekday } from "./Weekday";
-import { MenuDay } from "./MenuDay";
+import { Menu } from "./Menu";
 
 export class ParserNachtkantine extends AbstractParser {
-	public constructor() {
-		super();
+	public constructor(html?: string) {
+		super(html);
 	}
 
-	public parseMenuDay(weekday: Weekday): MenuDay {
-		let menuDay: MenuDay = new MenuDay();
+	public parseStartDate(): string {
+		return "yyyy-mm-dd";
+	}
+
+	public parseDailyMenus(weekday: Weekday): Array<Menu> {
+		let dailyMenus: Array<Menu> = [];
 
 		// ...
 
-		return menuDay;
+		return dailyMenus;
 	}
 }

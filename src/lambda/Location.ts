@@ -1,13 +1,11 @@
 import { AbstractParser } from "./AbstractParser";
-import { MenuWeek } from "./MenuWeek";
-import { Weekday } from "./Weekday";
-import { MenuDay } from "./MenuDay";
+import { WeeklyMenu } from "./WeeklyMenu";
 
 export class Location {
 	private nameAt: string;
 	private url: string;
 	private parser: AbstractParser;
-	private menuWeek: MenuWeek = new MenuWeek();
+	private weeklyMenu: WeeklyMenu = new WeeklyMenu();
 
 	public constructor(nameAt: string, url: string, parser: AbstractParser) {
 		this.setNameAt(nameAt);
@@ -39,19 +37,15 @@ export class Location {
 		this.parser = parser;
 	}
 
-	public getMenuWeek(): MenuWeek {
-		return this.menuWeek;
+	public getWeeklyMenu(): WeeklyMenu {
+		return this.weeklyMenu;
 	}
 
-	public setMenuWeek(menuWeek: MenuWeek): void {
-		this.menuWeek = menuWeek;
+	public setWeeklyMenu(weeklyMenu: WeeklyMenu): void {
+		this.weeklyMenu = weeklyMenu;
 	}
 
-	public loadMenuWeek(): void {
-		this.setMenuWeek(this.getParser().parseMenuWeek());
-	}
-
-	public getMenuDay(weekday: Weekday): MenuDay {
-		return this.getMenuWeek().get(weekday);
+	public loadWeeklyMenu(): void {
+		this.setWeeklyMenu(this.getParser().parseWeeklyMenu());
 	}
 }

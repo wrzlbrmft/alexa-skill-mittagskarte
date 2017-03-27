@@ -1,9 +1,13 @@
 import { AbstractMap } from "./AbstractMap";
 
-export class StringMap<T> extends AbstractMap<T> {
-	protected items: { [key: string]: T } = {};
+export class StringMap<V> extends AbstractMap<V> {
+	protected values: { [key: string]: V } = {};
 
 	public constructor() {
 		super();
+	}
+
+	public forEach(callback: (key: string, value?: V) => void): void {
+		super.forEach(callback);
 	}
 }

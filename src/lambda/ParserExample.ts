@@ -1,19 +1,22 @@
 import { AbstractParser } from "./AbstractParser";
 import { Weekday, weekdays } from "./Weekday";
-import { MenuDay } from "./MenuDay";
 import { Menu } from "./Menu";
 
 export class ParserExample extends AbstractParser {
-	public constructor() {
-		super();
+	public constructor(html?: string) {
+		super(html);
 	}
 
-	public parseMenuDay(weekday: Weekday): MenuDay {
-		let menuDay: MenuDay = new MenuDay();
+	public parseStartDate(): string {
+		return "yyyy-mm-dd";
+	}
+
+	public parseDailyMenus(weekday: Weekday): Array<Menu> {
+		let dailyMenus: Array<Menu> = [];
 		for (let i: number = 0; i < 3; i++) {
-			menuDay.add(new Menu(`Menü ${i} am ${weekdays.get(weekday)}`));
+			dailyMenus.push(new Menu(`Menü ${i} am ${weekdays.get(weekday)}`));
 		}
 
-		return menuDay;
+		return dailyMenus;
 	}
 }

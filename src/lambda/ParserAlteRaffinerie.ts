@@ -1,44 +1,48 @@
 import { AbstractParser } from "./AbstractParser";
 import { Weekday, weekdays } from "./Weekday";
-import { MenuDay } from "./MenuDay";
 import { Menu } from "./Menu";
 
 import * as cheerio from "cheerio";
 
 export class ParserAlteRaffinerie extends AbstractParser {
-	public constructor() {
-		super();
+	public constructor(html?: string) {
+		super(html);
 	}
 
-	public parseMenuDay(weekday: Weekday): MenuDay {
-		let menuDay: MenuDay = new MenuDay();
+	public parseStartDate(): string {
+		return "yyyy-mm-dd";
+	}
+
+	public parseDailyMenus(weekday: Weekday): Array<Menu> {
+		let dailyMenus: Array<Menu> = [];
 		let $ = cheerio.load(this.getHtml());
 
 		let isWeekday: boolean = false;
-		$("strong,p").each((index, element) => {
-			if ("strong" == element.name.toLowerCase()) {
-				isWeekday = ($(element).text().toLowerCase() == weekdays.get(weekday).toLowerCase());
-			}
-			if (isWeekday) {
-				if ("p" == element.name.toLowerCase()) {
-					let name = $(element).text()
-						.replace(/(\r?\n|\r)/g, " ")	// remove unnecessary newlines
-						.trim()							// could have started/ended with newline
-						.split("\t")[0]					// menu names and prices are split by one or more tabs
-						.replace(/&/g, "und")			// use "und" instead of ampersands
-						.replace(/ – /g, "-")			// remove typographic dashes
-						.replace(/\s+/g, " ");			// deduplicate whitespace
+		$("p,strong").each((index, element) => {
+			let text: string = $(element).text()
+				.replace(/(\r?\n|\r)/g, " ")	// remove unnecessary newlines
+				.trim();						// trim
 
-					if ("" == name) {
-						isWeekday = false;
-					}
-					else {
-						menuDay.add(new Menu(name));
-					}
+			if ("" == text) {
+				isWeekday = false;
+			}
+
+			if ("p" == element.name.toLowerCase()) {
+				if (isWeekday) {
+					dailyMenus.push(new Menu(text
+						.split("\t")[0]			// menu names and prices are separated by one or more tabs
+						.replace(/&/g, "und")	// use "und" instead of ampersands
+						.replace(/ – /g, "-")	// do not use typographic hyphens
+						.replace(/\s+/g, " ")	// dedupe whitespace
+					));
 				}
+			}
+
+			if ("strong" == element.name.toLowerCase()) {
+				isWeekday = (text.toLowerCase() == weekdays.get(weekday).toLowerCase());
 			}
 		});
 
-		return menuDay;
+		return dailyMenus;
 	}
 }

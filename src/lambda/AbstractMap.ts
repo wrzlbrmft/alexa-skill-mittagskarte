@@ -1,21 +1,19 @@
-export abstract class AbstractMap<T> {
-	protected items = {};
+export abstract class AbstractMap<V> {
+	protected values = {};
 
 	public constructor() {}
 
-	public getAll() {
-		return this.items;
+	public get(key: number | string): V {
+		return this.values[key];
 	}
 
-	public setAll(items): void {
-		this.items = items;
+	public put(key: number | string, value: V): void {
+		this.values[key] = value;
 	}
 
-	public get(key: number | string): T {
-		return this.items[key];
-	}
-
-	public put(key: number | string, value: T): void {
-		this.items[key] = value;
+	public forEach(callback: (key: number | string, value?: V) => void): void {
+		for (let key in this.values) {
+			callback(key, this.get(key));
+		}
 	}
 }

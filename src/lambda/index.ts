@@ -5,6 +5,7 @@ import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
 import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 import { Weekday } from "./Weekday";
+import { Menu } from "./Menu";
 
 import * as request from "request";
 
@@ -34,7 +35,9 @@ locations.put("Nachtkantine",
 let location: Location = locations.get("Alte Raffinerie");
 request(location.getUrl(), (error, response, body) => {
 	location.getParser().setHtml(body);
-	location.loadMenuWeek();
+	location.loadWeeklyMenu();
 
-	console.log(location.getMenuWeek().get(Weekday.Monday));
+	location.getWeeklyMenu().getDailyMenus().get(Weekday.Wednesday).forEach((menu: Menu) => {
+		console.log(menu.getName());
+	});
 });

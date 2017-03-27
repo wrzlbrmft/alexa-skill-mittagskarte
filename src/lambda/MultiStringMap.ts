@@ -1,11 +1,11 @@
 import { StringMap } from "./StringMap";
 
-export class MultiStringMap<T> extends StringMap<T> {
+export class MultiStringMap<V> extends StringMap<V> {
 	public constructor() {
 		super();
 	}
 
-	public multiPut(keys: Array<string>, value: T): void {
+	public multiPut(keys: Array<string>, value: V): void {
 		keys.forEach((key: string) => {
 			this.put(key, value);
 		});
