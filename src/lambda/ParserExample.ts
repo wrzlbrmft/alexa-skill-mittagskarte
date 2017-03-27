@@ -3,6 +3,7 @@ import { Weekday, weekdays } from "./Weekday";
 import { Menu } from "./Menu";
 
 import * as winston from "winston";
+import * as moment from "moment";
 
 export class ParserExample extends AbstractParser {
 	protected logger = new winston.Logger({
@@ -19,12 +20,12 @@ export class ParserExample extends AbstractParser {
 	}
 
 	public parseStartDate(): string {
-		return "YYYY-MM-DD";
+		return moment().day(Weekday.Monday).format("YYYY-MM-DD");
 	}
 
 	public parseDay(weekday: Weekday): Array<Menu> {
 		let day: Array<Menu> = [];
-		for (let i: number = 0; i < 3; i++) {
+		for (let i: number = 1; i <= 3; i++) {
 			day.push(new Menu(`Menü ${i} am ${weekdays.get(weekday)}`));
 		}
 
