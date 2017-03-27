@@ -6,8 +6,18 @@ import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 import { Menu } from "./Menu";
 
+import * as winston from "winston";
 import * as Alexa from "alexa-sdk";
 import * as request from "request";
+
+let logger = new winston.Logger({
+	level: process.env.LOG_LEVEL || "info",
+	transports: [
+		new winston.transports.Console({
+			label: "index"
+		})
+	]
+});
 
 let locations: MultiStringMap<Location> = new MultiStringMap<Location>();
 

@@ -2,11 +2,21 @@ import { AbstractParser } from "./AbstractParser";
 import { Weekday, weekdays } from "./Weekday";
 import { Menu } from "./Menu";
 
+import * as winston from "winston";
 import * as cheerio from "cheerio";
 import * as S from "string";
 import * as moment from "moment";
 
 export class ParserAlteRaffinerie extends AbstractParser {
+	protected logger = new winston.Logger({
+		level: process.env.LOG_LEVEL || "info",
+		transports: [
+			new winston.transports.Console({
+				label: "ParserAlteRaffinerie"
+			})
+		]
+	});
+
 	public constructor(html?: string) {
 		super(html);
 	}

@@ -2,9 +2,19 @@ import { Weekday, weekdays } from "./Weekday";
 import { Menu } from "./Menu";
 import { WeeklyMenu } from "./WeeklyMenu";
 
+import * as winston from "winston";
 import * as moment from "moment";
 
 export abstract class AbstractParser {
+	protected logger = new winston.Logger({
+		level: process.env.LOG_LEVEL || "info",
+		transports: [
+			new winston.transports.Console({
+				label: "AbstractParser"
+			})
+		]
+	});
+
 	private html: string = "";
 
 	public constructor(html?: string) {

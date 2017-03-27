@@ -2,7 +2,18 @@ import { AbstractParser } from "./AbstractParser";
 import { Weekday, weekdays } from "./Weekday";
 import { Menu } from "./Menu";
 
+import * as winston from "winston";
+
 export class ParserExample extends AbstractParser {
+	protected logger = new winston.Logger({
+		level: process.env.LOG_LEVEL || "info",
+		transports: [
+			new winston.transports.Console({
+				label: "ParserExample"
+			})
+		]
+	});
+
 	public constructor(html?: string) {
 		super(html);
 	}
