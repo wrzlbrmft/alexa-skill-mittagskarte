@@ -3,6 +3,8 @@ import { Weekday, weekdays } from "./Weekday";
 import { Menu } from "./Menu";
 
 import * as cheerio from "cheerio";
+import * as S from "string";
+import * as moment from "moment";
 
 export class ParserAlteRaffinerie extends AbstractParser {
 	public constructor(html?: string) {
@@ -10,7 +12,24 @@ export class ParserAlteRaffinerie extends AbstractParser {
 	}
 
 	public parseStartDate(): string {
-		return "yyyy-mm-dd";
+		let startDate: string = "yyyy-mm-dd";
+		let $ = cheerio.load(this.getHtml());
+
+		$("strong").each((index, element) => {
+			let text: string = $(element).text()
+				.replace(/(\r?\n|\r)/g, " ")	// remove unnecessary newlines
+				.trim();						// trim
+
+			if (0 == text.toLowerCase().indexOf("wochenkarte von montag ")) {
+				let textString = S(text);
+				let startDateString = textString.between("ontag ", " bis");
+				let startDateMoment = moment(startDateString.s, "D. MMMM", "de");
+
+				startDate = startDateMoment.format("YYYY-MM-DD");
+			}
+		});
+
+		return startDate;
 	}
 
 	public parseDay(weekday: Weekday): Array<Menu> {

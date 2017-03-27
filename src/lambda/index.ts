@@ -4,8 +4,6 @@ import { ParserExample } from "./ParserExample";
 import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
 import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
-import { Weekday } from "./Weekday";
-import { Menu } from "./Menu";
 
 import * as request from "request";
 
@@ -37,7 +35,10 @@ request(location.getUrl(), (error, response, body) => {
 	location.getParser().setHtml(body);
 	location.loadWeeklyMenu();
 
-	location.getWeeklyMenu().getDays().get(Weekday.Wednesday).forEach((menu: Menu) => {
-		console.log(menu.getName());
+	location.getWeeklyMenu().getDays().forEach((key, value) => {
+		console.log(key);
+		value.forEach((value) => {
+			console.log("    ", value.getName());
+		})
 	});
 });

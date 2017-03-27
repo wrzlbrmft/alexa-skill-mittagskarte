@@ -2,6 +2,8 @@ import { Weekday, weekdays } from "./Weekday";
 import { Menu } from "./Menu";
 import { WeeklyMenu } from "./WeeklyMenu";
 
+import * as moment from "moment";
+
 export abstract class AbstractParser {
 	private html: string = "";
 
@@ -26,7 +28,11 @@ export abstract class AbstractParser {
 	public parseWeeklyMenu(): WeeklyMenu {
 		let weeklyMenu: WeeklyMenu = new WeeklyMenu(this.parseStartDate());
 		weekdays.forEach((key: number) => {
-			weeklyMenu.getDays().put(key, this.parseDay(key));
+			let keyMoment = moment(weeklyMenu.getStartDate());
+			let day: Array<Menu> = this.parseDay(key);
+			if (day.length) {
+				weeklyMenu.getDays().put(keyMoment.add(key - 1, "days").format("YYYY-MM-DD"), day);
+			}
 		});
 
 		return weeklyMenu;
