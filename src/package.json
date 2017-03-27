@@ -4,6 +4,7 @@
   "dependencies": {
     "alexa-sdk": "*",
     "cheerio": "*",
+    "moment": "*",
     "request": "*",
     "string": "*",
     "@types/alexa-sdk": "*",
