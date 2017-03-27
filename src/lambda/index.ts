@@ -37,7 +37,7 @@ request(location.getUrl(), (error, response, body) => {
 	location.getParser().setHtml(body);
 	location.loadWeeklyMenu();
 
-	location.getWeeklyMenu().getDailyMenus().get(Weekday.Wednesday).forEach((menu: Menu) => {
+	location.getWeeklyMenu().getDays().get(Weekday.Wednesday).forEach((menu: Menu) => {
 		console.log(menu.getName());
 	});
 });

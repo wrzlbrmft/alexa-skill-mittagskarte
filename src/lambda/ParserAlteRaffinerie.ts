@@ -13,8 +13,8 @@ export class ParserAlteRaffinerie extends AbstractParser {
 		return "yyyy-mm-dd";
 	}
 
-	public parseDailyMenus(weekday: Weekday): Array<Menu> {
-		let dailyMenus: Array<Menu> = [];
+	public parseDay(weekday: Weekday): Array<Menu> {
+		let day: Array<Menu> = [];
 		let $ = cheerio.load(this.getHtml());
 
 		let isWeekday: boolean = false;
@@ -29,7 +29,7 @@ export class ParserAlteRaffinerie extends AbstractParser {
 
 			if ("p" == element.name.toLowerCase()) {
 				if (isWeekday) {
-					dailyMenus.push(new Menu(text
+					day.push(new Menu(text
 						.split("\t")[0]			// menu names and prices are separated by one or more tabs
 						.replace(/&/g, "und")	// use "und" instead of ampersands
 						.replace(/ – /g, "-")	// do not use typographic hyphens
@@ -43,6 +43,6 @@ export class ParserAlteRaffinerie extends AbstractParser {
 			}
 		});
 
-		return dailyMenus;
+		return day;
 	}
 }

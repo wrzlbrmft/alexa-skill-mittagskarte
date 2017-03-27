@@ -11,12 +11,12 @@ export class ParserExample extends AbstractParser {
 		return "yyyy-mm-dd";
 	}
 
-	public parseDailyMenus(weekday: Weekday): Array<Menu> {
-		let dailyMenus: Array<Menu> = [];
+	public parseDay(weekday: Weekday): Array<Menu> {
+		let day: Array<Menu> = [];
 		for (let i: number = 0; i < 3; i++) {
-			dailyMenus.push(new Menu(`Menü ${i} am ${weekdays.get(weekday)}`));
+			day.push(new Menu(`Menü ${i} am ${weekdays.get(weekday)}`));
 		}
 
-		return dailyMenus;
+		return day;
 	}
 }

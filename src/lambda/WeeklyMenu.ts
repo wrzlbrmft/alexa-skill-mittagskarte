@@ -3,7 +3,7 @@ import { Menu } from "./Menu";
 
 export class WeeklyMenu {
 	private startDate: string;
-	private dailyMenus: StringMap<Array<Menu>> = new StringMap<Array<Menu>>();
+	private days: StringMap<Array<Menu>> = new StringMap<Array<Menu>>();
 
 	public constructor(startDate?: string) {
 		if (startDate) {
@@ -19,11 +19,11 @@ export class WeeklyMenu {
 		this.startDate = startDate;
 	}
 
-	public getDailyMenus(): StringMap<Array<Menu>> {
-		return this.dailyMenus;
+	public getDays(): StringMap<Array<Menu>> {
+		return this.days;
 	}
 
-	public setDailyMenus(dailyMenus: StringMap<Array<Menu>>): void {
-		this.dailyMenus = dailyMenus;
+	public setDays(days: StringMap<Array<Menu>>): void {
+		this.days = days;
 	}
 }

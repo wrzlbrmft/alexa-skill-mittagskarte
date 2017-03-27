@@ -21,12 +21,12 @@ export abstract class AbstractParser {
 
 	public abstract parseStartDate(): string;
 
-	public abstract parseDailyMenus(weekday: Weekday): Array<Menu>;
+	public abstract parseDay(weekday: Weekday): Array<Menu>;
 
 	public parseWeeklyMenu(): WeeklyMenu {
 		let weeklyMenu: WeeklyMenu = new WeeklyMenu(this.parseStartDate());
 		weekdays.forEach((key: number) => {
-			weeklyMenu.getDailyMenus().put(key, this.parseDailyMenus(key));
+			weeklyMenu.getDays().put(key, this.parseDay(key));
 		});
 
 		return weeklyMenu;

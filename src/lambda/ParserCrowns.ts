@@ -11,11 +11,11 @@ export class ParserCrowns extends AbstractParser {
 		return "yyyy-mm-dd";
 	}
 
-	public parseDailyMenus(weekday: Weekday): Array<Menu> {
-		let dailyMenus: Array<Menu> = [];
+	public parseDay(weekday: Weekday): Array<Menu> {
+		let day: Array<Menu> = [];
 
 		// ...
 
-		return dailyMenus;
+		return day;
 	}
 }
