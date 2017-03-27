@@ -6,8 +6,8 @@ import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 import { Menu } from "./Menu";
 
+import * as http from "http";
 import * as Alexa from "alexa-sdk";
-import * as request from "request";
 
 let locations: MultiStringMap<Location> = new MultiStringMap<Location>();
 
@@ -35,25 +35,30 @@ let handlers = {
 	"MenusWhenLocation": function() {
 		let whenSlot = this.event.request.intent.slots.When;
 		let locationSlot = this.event.request.intent.slots.Location;
-		let speechOutput: string = "";
+		let speechOutput: string = "Leider kein Gewinn.";
 
 		let location: Location = locations.get(locationSlot.value);
-		request(location.getUrl(), (error, response, body) => {
-			location.getParser().setHtml(body);
-			location.loadWeeklyMenu();
+		http.get(location.getUrl(), (res) => {
+			let html: string = "";
 
-			let day: Array<Menu> = location.getWeeklyMenu().getDays().get(whenSlot.value);
-			if (day && day.length) {
-				let menuNames: Array<string> = [];
-				day.forEach((menu: Menu) => {
-					menuNames.push(menu.getName());
-				});
+			res.on("data", (data: string) => {
+				html += data;
+			});
 
-				speechOutput = menuNames.join(". ");
-			}
-			else {
-				speechOutput = "Leider kein Gewinn.";
-			}
+			res.on("end", () => {
+				location.getParser().setHtml(html);
+				location.loadWeeklyMenu();
+
+				let day: Array<Menu> = location.getWeeklyMenu().getDays().get(whenSlot.value);
+				if (day && day.length) {
+					let menuNames: Array<string> = [];
+					day.forEach((menu: Menu) => {
+						menuNames.push(menu.getName());
+					});
+
+					speechOutput = menuNames.join(". ");
+				}
+			});
 		});
 
 		this.emit(":tell", speechOutput);
