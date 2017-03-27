@@ -3,7 +3,7 @@ import { Menu } from "./Menu";
 import { WeeklyMenu } from "./WeeklyMenu";
 
 export abstract class AbstractParser {
-	private html: string;
+	private html: string = "";
 
 	public constructor(html?: string) {
 		if (html) {

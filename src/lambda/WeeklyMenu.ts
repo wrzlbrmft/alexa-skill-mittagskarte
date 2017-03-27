@@ -2,7 +2,7 @@ import { StringMap } from "./StringMap";
 import { Menu } from "./Menu";
 
 export class WeeklyMenu {
-	private startDate: string;
+	private startDate: string = "yyyy-mm-dd";
 	private days: StringMap<Array<Menu>> = new StringMap<Array<Menu>>();
 
 	public constructor(startDate?: string) {
