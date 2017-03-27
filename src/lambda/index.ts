@@ -6,27 +6,27 @@ import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 import { Menu } from "./Menu";
 
-import * as http from "http";
 import * as Alexa from "alexa-sdk";
+import * as request from "request";
 
 let locations: MultiStringMap<Location> = new MultiStringMap<Location>();
 
-locations.put("Beispiel",
+locations.put("beispiel",
 	new Location("zum Beispiel",
 		null,
 		new ParserExample()));
 
-locations.multiPut(["Alte Raffinerie", "Alten Raffinerie", "Storchenburg"],
+locations.multiPut(["alte raffinerie", "storchenburg"],
 	new Location("in der Alten Raffinerie",
 		"http://www.alte-raffinerie.de/index.php/Essen.html",
 		new ParserAlteRaffinerie()));
 
-locations.put("Crowns",
+locations.put("crowns",
 	new Location("im Crowns",
 		"http://www.crownsrestaurant.de/wochenkarte/",
 		new ParserCrowns()));
 
-locations.put("Nachtkantine",
+locations.put("nachtkantine",
 	new Location("in der Nachtkantine",
 		"http://www.nachtkantine.de/mittagskarte/",
 		new ParserNachtkantine()));
@@ -35,33 +35,28 @@ let handlers = {
 	"MenusWhenLocation": function() {
 		let whenSlot = this.event.request.intent.slots.When;
 		let locationSlot = this.event.request.intent.slots.Location;
-		let speechOutput: string = "Leider kein Gewinn.";
 
-		let location: Location = locations.get(locationSlot.value);
-		http.get(location.getUrl(), (res) => {
-			let html: string = "";
+		let location: Location = locations.get(locationSlot.value.toLowerCase());
+		request(location.getUrl(), (error, response, body) => {
+			location.getParser().setHtml(body);
+			location.loadWeeklyMenu();
 
-			res.on("data", (data: string) => {
-				html += data;
-			});
+			let day: Array<Menu> = location.getWeeklyMenu().getDays().get(whenSlot.value);
+			if (day && day.length) {
+				let menuNames: Array<string> = [];
+				day.forEach((menu: Menu) => {
+					menuNames.push(menu.getName());
+				});
 
-			res.on("end", () => {
-				location.getParser().setHtml(html);
-				location.loadWeeklyMenu();
+				let speechOutput: string = menuNames.join(". ");
+				this.emit(":tell", speechOutput);
+			}
+			else {
+				this.emit(":tell", "Leider kein Gewinn.");
+			}
 
-				let day: Array<Menu> = location.getWeeklyMenu().getDays().get(whenSlot.value);
-				if (day && day.length) {
-					let menuNames: Array<string> = [];
-					day.forEach((menu: Menu) => {
-						menuNames.push(menu.getName());
-					});
-
-					speechOutput = menuNames.join(". ");
-				}
-			});
+			this.context.succeed();
 		});
-
-		this.emit(":tell", speechOutput);
 	}
 };
 

@@ -5,10 +5,12 @@
     "alexa-sdk": "*",
     "cheerio": "*",
     "moment": "*",
+    "request": "*",
     "string": "*",
     "@types/alexa-sdk": "*",
     "@types/cheerio": "*",
     "@types/node": "*",
+    "@types/request": "*",
     "@types/string": "*"
   },
   "devDependencies": {
