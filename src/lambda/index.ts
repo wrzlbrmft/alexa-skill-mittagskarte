@@ -46,16 +46,27 @@ let handlers = {
 		let dateSlot = this.event.request.intent.slots.Date;
 		let locationSlot = this.event.request.intent.slots.Location;
 
+		logger.info("MenusOnDateAtLocation: date='%s', location='%s'", dateSlot.value, locationSlot.value);
+
 		let speechOutput: string = "";
 
 		let location: Location = locations.get(locationSlot.value.toLowerCase());
 		if (location) {
+			logger.debug("location found");
+
+			logger.debug("location url='%s'", location.getUrl());
 			request(location.getUrl(), (error, response, body) => {
+				logger.debug("request error='%s'", error);
+				// logger.silly("request response='%s'", response);
+				logger.silly("request body='%s'", body);
+
 				location.getParser().setHtml(body);
 				location.loadWeeklyMenu();
 
 				let day: Array<Menu> = location.getWeeklyMenu().getDays().get(dateSlot.value);
 				if (day && day.length) {
+					logger.debug("%d menus found", day.length);
+
 					let menuNames: Array<string> = [];
 					day.forEach((menu: Menu) => {
 						menuNames.push(menu.getName());
@@ -64,15 +75,20 @@ let handlers = {
 					speechOutput = menuNames.join(". ");
 				}
 				else {
+					logger.warn("no menus found");
+
 					speechOutput = "Leider kein Gewinn.";
 				}
 
+				logger.debug("speechOutput='%s'", speechOutput);
 				this.emit(":tell", speechOutput);
 
 				this.context.succeed();
 			});
 		}
 		else {
+			logger.error("location not found");
+
 			this.context.fail();
 		}
 	}
