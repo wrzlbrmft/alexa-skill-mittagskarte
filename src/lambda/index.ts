@@ -14,7 +14,7 @@ locations.put("Beispiel",
 		null,
 		new ParserExample()));
 
-locations.multiPut(["Alte Raffinerie", "Storchenburg"],
+locations.multiPut(["Alte Raffinerie", "Alten Raffinerie", "Storchenburg"],
 	new Location("in der Alten Raffinerie",
 		"http://www.alte-raffinerie.de/index.php/Essen.html",
 		new ParserAlteRaffinerie()));
