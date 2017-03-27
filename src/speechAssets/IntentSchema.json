@@ -1,10 +1,10 @@
 {
 	"intents": [
 		{
-			"intent": "MenusWhenLocation",
+			"intent": "MenusOnDateAtLocation",
 			"slots": [
 				{
-					"name": "When",
+					"name": "Date",
 					"type": "AMAZON.DATE"
 				},
 				{

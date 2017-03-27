@@ -42,8 +42,8 @@ locations.put("nachtkantine",
 		new ParserNachtkantine()));
 
 let handlers = {
-	"MenusWhenLocation": function() {
-		let whenSlot = this.event.request.intent.slots.When;
+	"MenusOnDateAtLocation": function() {
+		let dateSlot = this.event.request.intent.slots.Date;
 		let locationSlot = this.event.request.intent.slots.Location;
 
 		let speechOutput: string = "";
@@ -54,7 +54,7 @@ let handlers = {
 				location.getParser().setHtml(body);
 				location.loadWeeklyMenu();
 
-				let day: Array<Menu> = location.getWeeklyMenu().getDays().get(whenSlot.value);
+				let day: Array<Menu> = location.getWeeklyMenu().getDays().get(dateSlot.value);
 				if (day && day.length) {
 					let menuNames: Array<string> = [];
 					day.forEach((menu: Menu) => {

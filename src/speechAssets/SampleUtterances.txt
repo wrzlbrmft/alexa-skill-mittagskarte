@@ -1,189 +1,189 @@
-MenusWhenLocation	was es {When} beim {Location} zu Mittag gibt
-MenusWhenLocation	was es {When} bei der {Location} zu Mittag gibt
-MenusWhenLocation	was es {When} im {Location} zu Mittag gibt
-MenusWhenLocation	was es {When} in der {Location} zu Mittag gibt
+MenusOnDateAtLocation	was es {Date} beim {Location} zu Mittag gibt
+MenusOnDateAtLocation	was es {Date} bei der {Location} zu Mittag gibt
+MenusOnDateAtLocation	was es {Date} im {Location} zu Mittag gibt
+MenusOnDateAtLocation	was es {Date} in der {Location} zu Mittag gibt
 
-MenusWhenLocation	was es {When} beim {Location} zum Mittag gibt
-MenusWhenLocation	was es {When} bei der {Location} zum Mittag gibt
-MenusWhenLocation	was es {When} im {Location} zum Mittag gibt
-MenusWhenLocation	was es {When} in der {Location} zum Mittag gibt
+MenusOnDateAtLocation	was es {Date} beim {Location} zum Mittag gibt
+MenusOnDateAtLocation	was es {Date} bei der {Location} zum Mittag gibt
+MenusOnDateAtLocation	was es {Date} im {Location} zum Mittag gibt
+MenusOnDateAtLocation	was es {Date} in der {Location} zum Mittag gibt
 
-MenusWhenLocation	was es {When} beim {Location} zu Essen gibt
-MenusWhenLocation	was es {When} bei der {Location} zu Essen gibt
-MenusWhenLocation	was es {When} im {Location} zu Essen gibt
-MenusWhenLocation	was es {When} in der {Location} zu Essen gibt
+MenusOnDateAtLocation	was es {Date} beim {Location} zu Essen gibt
+MenusOnDateAtLocation	was es {Date} bei der {Location} zu Essen gibt
+MenusOnDateAtLocation	was es {Date} im {Location} zu Essen gibt
+MenusOnDateAtLocation	was es {Date} in der {Location} zu Essen gibt
 
-MenusWhenLocation	was es {When} beim {Location} zum Essen gibt
-MenusWhenLocation	was es {When} bei der {Location} zum Essen gibt
-MenusWhenLocation	was es {When} im {Location} zum Essen gibt
-MenusWhenLocation	was es {When} in der {Location} zum Essen gibt
+MenusOnDateAtLocation	was es {Date} beim {Location} zum Essen gibt
+MenusOnDateAtLocation	was es {Date} bei der {Location} zum Essen gibt
+MenusOnDateAtLocation	was es {Date} im {Location} zum Essen gibt
+MenusOnDateAtLocation	was es {Date} in der {Location} zum Essen gibt
 
-MenusWhenLocation	was es {When} beim {Location} zu Mittagessen gibt
-MenusWhenLocation	was es {When} bei der {Location} zu Mittagessen gibt
-MenusWhenLocation	was es {When} im {Location} zu Mittagessen gibt
-MenusWhenLocation	was es {When} in der {Location} zu Mittagessen gibt
+MenusOnDateAtLocation	was es {Date} beim {Location} zu Mittagessen gibt
+MenusOnDateAtLocation	was es {Date} bei der {Location} zu Mittagessen gibt
+MenusOnDateAtLocation	was es {Date} im {Location} zu Mittagessen gibt
+MenusOnDateAtLocation	was es {Date} in der {Location} zu Mittagessen gibt
 
-MenusWhenLocation	was es {When} beim {Location} zum Mittagessen gibt
-MenusWhenLocation	was es {When} bei der {Location} zum Mittagessen gibt
-MenusWhenLocation	was es {When} im {Location} zum Mittagessen gibt
-MenusWhenLocation	was es {When} in der {Location} zum Mittagessen gibt
-
-
-
-MenusWhenLocation	was es beim {Location} {When} zu Mittag gibt
-MenusWhenLocation	was es bei der {Location} {When} zu Mittag gibt
-MenusWhenLocation	was es im {Location} {When} zu Mittag gibt
-MenusWhenLocation	was es in der {Location} {When} zu Mittag gibt
-
-MenusWhenLocation	was es beim {Location} {When} zum Mittag gibt
-MenusWhenLocation	was es bei der {Location} {When} zum Mittag gibt
-MenusWhenLocation	was es im {Location} {When} zum Mittag gibt
-MenusWhenLocation	was es in der {Location} {When} zum Mittag gibt
-
-MenusWhenLocation	was es beim {Location} {When} zu Essen gibt
-MenusWhenLocation	was es bei der {Location} {When} zu Essen gibt
-MenusWhenLocation	was es im {Location} {When} zu Essen gibt
-MenusWhenLocation	was es in der {Location} {When} zu Essen gibt
-
-MenusWhenLocation	was es beim {Location} {When} zum Essen gibt
-MenusWhenLocation	was es bei der {Location} {When} zum Essen gibt
-MenusWhenLocation	was es im {Location} {When} zum Essen gibt
-MenusWhenLocation	was es in der {Location} {When} zum Essen gibt
-
-MenusWhenLocation	was es beim {Location} {When} zu Mittagessen gibt
-MenusWhenLocation	was es bei der {Location} {When} zu Mittagessen gibt
-MenusWhenLocation	was es im {Location} {When} zu Mittagessen gibt
-MenusWhenLocation	was es in der {Location} {When} zu Mittagessen gibt
-
-MenusWhenLocation	was es beim {Location} {When} zum Mittagessen gibt
-MenusWhenLocation	was es bei der {Location} {When} zum Mittagessen gibt
-MenusWhenLocation	was es im {Location} {When} zum Mittagessen gibt
-MenusWhenLocation	was es in der {Location} {When} zum Mittagessen gibt
+MenusOnDateAtLocation	was es {Date} beim {Location} zum Mittagessen gibt
+MenusOnDateAtLocation	was es {Date} bei der {Location} zum Mittagessen gibt
+MenusOnDateAtLocation	was es {Date} im {Location} zum Mittagessen gibt
+MenusOnDateAtLocation	was es {Date} in der {Location} zum Mittagessen gibt
 
 
 
-MenusWhenLocation	was gibt es {When} beim {Location} zu Mittag
-MenusWhenLocation	was gibt es {When} bei der {Location} zu Mittag
-MenusWhenLocation	was gibt es {When} im {Location} zu Mittag
-MenusWhenLocation	was gibt es {When} in der {Location} zu Mittag
+MenusOnDateAtLocation	was es beim {Location} {Date} zu Mittag gibt
+MenusOnDateAtLocation	was es bei der {Location} {Date} zu Mittag gibt
+MenusOnDateAtLocation	was es im {Location} {Date} zu Mittag gibt
+MenusOnDateAtLocation	was es in der {Location} {Date} zu Mittag gibt
 
-MenusWhenLocation	was gibt es {When} beim {Location} zum Mittag
-MenusWhenLocation	was gibt es {When} bei der {Location} zum Mittag
-MenusWhenLocation	was gibt es {When} im {Location} zum Mittag
-MenusWhenLocation	was gibt es {When} in der {Location} zum Mittag
+MenusOnDateAtLocation	was es beim {Location} {Date} zum Mittag gibt
+MenusOnDateAtLocation	was es bei der {Location} {Date} zum Mittag gibt
+MenusOnDateAtLocation	was es im {Location} {Date} zum Mittag gibt
+MenusOnDateAtLocation	was es in der {Location} {Date} zum Mittag gibt
 
-MenusWhenLocation	was gibt es {When} beim {Location} zu Essen
-MenusWhenLocation	was gibt es {When} bei der {Location} zu Essen
-MenusWhenLocation	was gibt es {When} im {Location} zu Essen
-MenusWhenLocation	was gibt es {When} in der {Location} zu Essen
+MenusOnDateAtLocation	was es beim {Location} {Date} zu Essen gibt
+MenusOnDateAtLocation	was es bei der {Location} {Date} zu Essen gibt
+MenusOnDateAtLocation	was es im {Location} {Date} zu Essen gibt
+MenusOnDateAtLocation	was es in der {Location} {Date} zu Essen gibt
 
-MenusWhenLocation	was gibt es {When} beim {Location} zum Essen
-MenusWhenLocation	was gibt es {When} bei der {Location} zum Essen
-MenusWhenLocation	was gibt es {When} im {Location} zum Essen
-MenusWhenLocation	was gibt es {When} in der {Location} zum Essen
+MenusOnDateAtLocation	was es beim {Location} {Date} zum Essen gibt
+MenusOnDateAtLocation	was es bei der {Location} {Date} zum Essen gibt
+MenusOnDateAtLocation	was es im {Location} {Date} zum Essen gibt
+MenusOnDateAtLocation	was es in der {Location} {Date} zum Essen gibt
 
-MenusWhenLocation	was gibt es {When} beim {Location} zu Mittagessen
-MenusWhenLocation	was gibt es {When} bei der {Location} zu Mittagessen
-MenusWhenLocation	was gibt es {When} im {Location} zu Mittagessen
-MenusWhenLocation	was gibt es {When} in der {Location} zu Mittagessen
+MenusOnDateAtLocation	was es beim {Location} {Date} zu Mittagessen gibt
+MenusOnDateAtLocation	was es bei der {Location} {Date} zu Mittagessen gibt
+MenusOnDateAtLocation	was es im {Location} {Date} zu Mittagessen gibt
+MenusOnDateAtLocation	was es in der {Location} {Date} zu Mittagessen gibt
 
-MenusWhenLocation	was gibt es {When} beim {Location} zum Mittagessen
-MenusWhenLocation	was gibt es {When} bei der {Location} zum Mittagessen
-MenusWhenLocation	was gibt es {When} im {Location} zum Mittagessen
-MenusWhenLocation	was gibt es {When} in der {Location} zum Mittagessen
-
-
-
-MenusWhenLocation	was gibt es beim {Location} {When} zu Mittag
-MenusWhenLocation	was gibt es bei der {Location} {When} zu Mittag
-MenusWhenLocation	was gibt es im {Location} {When} zu Mittag
-MenusWhenLocation	was gibt es in der {Location} {When} zu Mittag
-
-MenusWhenLocation	was gibt es beim {Location} {When} zum Mittag
-MenusWhenLocation	was gibt es bei der {Location} {When} zum Mittag
-MenusWhenLocation	was gibt es im {Location} {When} zum Mittag
-MenusWhenLocation	was gibt es in der {Location} {When} zum Mittag
-
-MenusWhenLocation	was gibt es beim {Location} {When} zu Essen
-MenusWhenLocation	was gibt es bei der {Location} {When} zu Essen
-MenusWhenLocation	was gibt es im {Location} {When} zu Essen
-MenusWhenLocation	was gibt es in der {Location} {When} zu Essen
-
-MenusWhenLocation	was gibt es beim {Location} {When} zum Essen
-MenusWhenLocation	was gibt es bei der {Location} {When} zum Essen
-MenusWhenLocation	was gibt es im {Location} {When} zum Essen
-MenusWhenLocation	was gibt es in der {Location} {When} zum Essen
-
-MenusWhenLocation	was gibt es beim {Location} {When} zu Mittagessen
-MenusWhenLocation	was gibt es bei der {Location} {When} zu Mittagessen
-MenusWhenLocation	was gibt es im {Location} {When} zu Mittagessen
-MenusWhenLocation	was gibt es in der {Location} {When} zu Mittagessen
-
-MenusWhenLocation	was gibt es beim {Location} {When} zum Mittagessen
-MenusWhenLocation	was gibt es bei der {Location} {When} zum Mittagessen
-MenusWhenLocation	was gibt es im {Location} {When} zum Mittagessen
-MenusWhenLocation	was gibt es in der {Location} {When} zum Mittagessen
+MenusOnDateAtLocation	was es beim {Location} {Date} zum Mittagessen gibt
+MenusOnDateAtLocation	was es bei der {Location} {Date} zum Mittagessen gibt
+MenusOnDateAtLocation	was es im {Location} {Date} zum Mittagessen gibt
+MenusOnDateAtLocation	was es in der {Location} {Date} zum Mittagessen gibt
 
 
 
-MenusWhenLocation	was gibts {When} beim {Location} zu Mittag
-MenusWhenLocation	was gibts {When} bei der {Location} zu Mittag
-MenusWhenLocation	was gibts {When} im {Location} zu Mittag
-MenusWhenLocation	was gibts {When} in der {Location} zu Mittag
+MenusOnDateAtLocation	was gibt es {Date} beim {Location} zu Mittag
+MenusOnDateAtLocation	was gibt es {Date} bei der {Location} zu Mittag
+MenusOnDateAtLocation	was gibt es {Date} im {Location} zu Mittag
+MenusOnDateAtLocation	was gibt es {Date} in der {Location} zu Mittag
 
-MenusWhenLocation	was gibts {When} beim {Location} zum Mittag
-MenusWhenLocation	was gibts {When} bei der {Location} zum Mittag
-MenusWhenLocation	was gibts {When} im {Location} zum Mittag
-MenusWhenLocation	was gibts {When} in der {Location} zum Mittag
+MenusOnDateAtLocation	was gibt es {Date} beim {Location} zum Mittag
+MenusOnDateAtLocation	was gibt es {Date} bei der {Location} zum Mittag
+MenusOnDateAtLocation	was gibt es {Date} im {Location} zum Mittag
+MenusOnDateAtLocation	was gibt es {Date} in der {Location} zum Mittag
 
-MenusWhenLocation	was gibts {When} beim {Location} zu Essen
-MenusWhenLocation	was gibts {When} bei der {Location} zu Essen
-MenusWhenLocation	was gibts {When} im {Location} zu Essen
-MenusWhenLocation	was gibts {When} in der {Location} zu Essen
+MenusOnDateAtLocation	was gibt es {Date} beim {Location} zu Essen
+MenusOnDateAtLocation	was gibt es {Date} bei der {Location} zu Essen
+MenusOnDateAtLocation	was gibt es {Date} im {Location} zu Essen
+MenusOnDateAtLocation	was gibt es {Date} in der {Location} zu Essen
 
-MenusWhenLocation	was gibts {When} beim {Location} zum Essen
-MenusWhenLocation	was gibts {When} bei der {Location} zum Essen
-MenusWhenLocation	was gibts {When} im {Location} zum Essen
-MenusWhenLocation	was gibts {When} in der {Location} zum Essen
+MenusOnDateAtLocation	was gibt es {Date} beim {Location} zum Essen
+MenusOnDateAtLocation	was gibt es {Date} bei der {Location} zum Essen
+MenusOnDateAtLocation	was gibt es {Date} im {Location} zum Essen
+MenusOnDateAtLocation	was gibt es {Date} in der {Location} zum Essen
 
-MenusWhenLocation	was gibts {When} beim {Location} zu Mittagessen
-MenusWhenLocation	was gibts {When} bei der {Location} zu Mittagessen
-MenusWhenLocation	was gibts {When} im {Location} zu Mittagessen
-MenusWhenLocation	was gibts {When} in der {Location} zu Mittagessen
+MenusOnDateAtLocation	was gibt es {Date} beim {Location} zu Mittagessen
+MenusOnDateAtLocation	was gibt es {Date} bei der {Location} zu Mittagessen
+MenusOnDateAtLocation	was gibt es {Date} im {Location} zu Mittagessen
+MenusOnDateAtLocation	was gibt es {Date} in der {Location} zu Mittagessen
 
-MenusWhenLocation	was gibts {When} beim {Location} zum Mittagessen
-MenusWhenLocation	was gibts {When} bei der {Location} zum Mittagessen
-MenusWhenLocation	was gibts {When} im {Location} zum Mittagessen
-MenusWhenLocation	was gibts {When} in der {Location} zum Mittagessen
+MenusOnDateAtLocation	was gibt es {Date} beim {Location} zum Mittagessen
+MenusOnDateAtLocation	was gibt es {Date} bei der {Location} zum Mittagessen
+MenusOnDateAtLocation	was gibt es {Date} im {Location} zum Mittagessen
+MenusOnDateAtLocation	was gibt es {Date} in der {Location} zum Mittagessen
 
 
 
-MenusWhenLocation	was gibts beim {Location} {When} zu Mittag
-MenusWhenLocation	was gibts bei der {Location} {When} zu Mittag
-MenusWhenLocation	was gibts im {Location} {When} zu Mittag
-MenusWhenLocation	was gibts in der {Location} {When} zu Mittag
+MenusOnDateAtLocation	was gibt es beim {Location} {Date} zu Mittag
+MenusOnDateAtLocation	was gibt es bei der {Location} {Date} zu Mittag
+MenusOnDateAtLocation	was gibt es im {Location} {Date} zu Mittag
+MenusOnDateAtLocation	was gibt es in der {Location} {Date} zu Mittag
 
-MenusWhenLocation	was gibts beim {Location} {When} zum Mittag
-MenusWhenLocation	was gibts bei der {Location} {When} zum Mittag
-MenusWhenLocation	was gibts im {Location} {When} zum Mittag
-MenusWhenLocation	was gibts in der {Location} {When} zum Mittag
+MenusOnDateAtLocation	was gibt es beim {Location} {Date} zum Mittag
+MenusOnDateAtLocation	was gibt es bei der {Location} {Date} zum Mittag
+MenusOnDateAtLocation	was gibt es im {Location} {Date} zum Mittag
+MenusOnDateAtLocation	was gibt es in der {Location} {Date} zum Mittag
 
-MenusWhenLocation	was gibts beim {Location} {When} zu Essen
-MenusWhenLocation	was gibts bei der {Location} {When} zu Essen
-MenusWhenLocation	was gibts im {Location} {When} zu Essen
-MenusWhenLocation	was gibts in der {Location} {When} zu Essen
+MenusOnDateAtLocation	was gibt es beim {Location} {Date} zu Essen
+MenusOnDateAtLocation	was gibt es bei der {Location} {Date} zu Essen
+MenusOnDateAtLocation	was gibt es im {Location} {Date} zu Essen
+MenusOnDateAtLocation	was gibt es in der {Location} {Date} zu Essen
 
-MenusWhenLocation	was gibts beim {Location} {When} zum Essen
-MenusWhenLocation	was gibts bei der {Location} {When} zum Essen
-MenusWhenLocation	was gibts im {Location} {When} zum Essen
-MenusWhenLocation	was gibts in der {Location} {When} zum Essen
+MenusOnDateAtLocation	was gibt es beim {Location} {Date} zum Essen
+MenusOnDateAtLocation	was gibt es bei der {Location} {Date} zum Essen
+MenusOnDateAtLocation	was gibt es im {Location} {Date} zum Essen
+MenusOnDateAtLocation	was gibt es in der {Location} {Date} zum Essen
 
-MenusWhenLocation	was gibts beim {Location} {When} zu Mittagessen
-MenusWhenLocation	was gibts bei der {Location} {When} zu Mittagessen
-MenusWhenLocation	was gibts im {Location} {When} zu Mittagessen
-MenusWhenLocation	was gibts in der {Location} {When} zu Mittagessen
+MenusOnDateAtLocation	was gibt es beim {Location} {Date} zu Mittagessen
+MenusOnDateAtLocation	was gibt es bei der {Location} {Date} zu Mittagessen
+MenusOnDateAtLocation	was gibt es im {Location} {Date} zu Mittagessen
+MenusOnDateAtLocation	was gibt es in der {Location} {Date} zu Mittagessen
 
-MenusWhenLocation	was gibts beim {Location} {When} zum Mittagessen
-MenusWhenLocation	was gibts bei der {Location} {When} zum Mittagessen
-MenusWhenLocation	was gibts im {Location} {When} zum Mittagessen
-MenusWhenLocation	was gibts in der {Location} {When} zum Mittagessen
+MenusOnDateAtLocation	was gibt es beim {Location} {Date} zum Mittagessen
+MenusOnDateAtLocation	was gibt es bei der {Location} {Date} zum Mittagessen
+MenusOnDateAtLocation	was gibt es im {Location} {Date} zum Mittagessen
+MenusOnDateAtLocation	was gibt es in der {Location} {Date} zum Mittagessen
+
+
+
+MenusOnDateAtLocation	was gibts {Date} beim {Location} zu Mittag
+MenusOnDateAtLocation	was gibts {Date} bei der {Location} zu Mittag
+MenusOnDateAtLocation	was gibts {Date} im {Location} zu Mittag
+MenusOnDateAtLocation	was gibts {Date} in der {Location} zu Mittag
+
+MenusOnDateAtLocation	was gibts {Date} beim {Location} zum Mittag
+MenusOnDateAtLocation	was gibts {Date} bei der {Location} zum Mittag
+MenusOnDateAtLocation	was gibts {Date} im {Location} zum Mittag
+MenusOnDateAtLocation	was gibts {Date} in der {Location} zum Mittag
+
+MenusOnDateAtLocation	was gibts {Date} beim {Location} zu Essen
+MenusOnDateAtLocation	was gibts {Date} bei der {Location} zu Essen
+MenusOnDateAtLocation	was gibts {Date} im {Location} zu Essen
+MenusOnDateAtLocation	was gibts {Date} in der {Location} zu Essen
+
+MenusOnDateAtLocation	was gibts {Date} beim {Location} zum Essen
+MenusOnDateAtLocation	was gibts {Date} bei der {Location} zum Essen
+MenusOnDateAtLocation	was gibts {Date} im {Location} zum Essen
+MenusOnDateAtLocation	was gibts {Date} in der {Location} zum Essen
+
+MenusOnDateAtLocation	was gibts {Date} beim {Location} zu Mittagessen
+MenusOnDateAtLocation	was gibts {Date} bei der {Location} zu Mittagessen
+MenusOnDateAtLocation	was gibts {Date} im {Location} zu Mittagessen
+MenusOnDateAtLocation	was gibts {Date} in der {Location} zu Mittagessen
+
+MenusOnDateAtLocation	was gibts {Date} beim {Location} zum Mittagessen
+MenusOnDateAtLocation	was gibts {Date} bei der {Location} zum Mittagessen
+MenusOnDateAtLocation	was gibts {Date} im {Location} zum Mittagessen
+MenusOnDateAtLocation	was gibts {Date} in der {Location} zum Mittagessen
+
+
+
+MenusOnDateAtLocation	was gibts beim {Location} {Date} zu Mittag
+MenusOnDateAtLocation	was gibts bei der {Location} {Date} zu Mittag
+MenusOnDateAtLocation	was gibts im {Location} {Date} zu Mittag
+MenusOnDateAtLocation	was gibts in der {Location} {Date} zu Mittag
+
+MenusOnDateAtLocation	was gibts beim {Location} {Date} zum Mittag
+MenusOnDateAtLocation	was gibts bei der {Location} {Date} zum Mittag
+MenusOnDateAtLocation	was gibts im {Location} {Date} zum Mittag
+MenusOnDateAtLocation	was gibts in der {Location} {Date} zum Mittag
+
+MenusOnDateAtLocation	was gibts beim {Location} {Date} zu Essen
+MenusOnDateAtLocation	was gibts bei der {Location} {Date} zu Essen
+MenusOnDateAtLocation	was gibts im {Location} {Date} zu Essen
+MenusOnDateAtLocation	was gibts in der {Location} {Date} zu Essen
+
+MenusOnDateAtLocation	was gibts beim {Location} {Date} zum Essen
+MenusOnDateAtLocation	was gibts bei der {Location} {Date} zum Essen
+MenusOnDateAtLocation	was gibts im {Location} {Date} zum Essen
+MenusOnDateAtLocation	was gibts in der {Location} {Date} zum Essen
+
+MenusOnDateAtLocation	was gibts beim {Location} {Date} zu Mittagessen
+MenusOnDateAtLocation	was gibts bei der {Location} {Date} zu Mittagessen
+MenusOnDateAtLocation	was gibts im {Location} {Date} zu Mittagessen
+MenusOnDateAtLocation	was gibts in der {Location} {Date} zu Mittagessen
+
+MenusOnDateAtLocation	was gibts beim {Location} {Date} zum Mittagessen
+MenusOnDateAtLocation	was gibts bei der {Location} {Date} zum Mittagessen
+MenusOnDateAtLocation	was gibts im {Location} {Date} zum Mittagessen
+MenusOnDateAtLocation	was gibts in der {Location} {Date} zum Mittagessen
