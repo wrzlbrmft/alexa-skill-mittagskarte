@@ -1,5 +1,5 @@
 {
-  "name": "alexa-skill-mittagskarte",
+  "name": "alexa-skill-wochenkarte",
   "version": "0.0.0",
   "dependencies": {
     "alexa-sdk": "*",
