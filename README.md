@@ -1,1 +1,1 @@
-# alexa-skill-mittagskarte
+# alexa-skill-wochenkarte
