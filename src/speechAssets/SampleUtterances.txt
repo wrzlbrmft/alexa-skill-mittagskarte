@@ -1,13 +1,3 @@
-MenusWhenLocation	was es {When} beim {Location} zu Essen gibt
-MenusWhenLocation	was es {When} bei der {Location} zu Essen gibt
-MenusWhenLocation	was es {When} im {Location} zu Essen gibt
-MenusWhenLocation	was es {When} in der {Location} zu Essen gibt
-
-MenusWhenLocation	was es {When} beim {Location} zum Essen gibt
-MenusWhenLocation	was es {When} bei der {Location} zum Essen gibt
-MenusWhenLocation	was es {When} im {Location} zum Essen gibt
-MenusWhenLocation	was es {When} in der {Location} zum Essen gibt
-
 MenusWhenLocation	was es {When} beim {Location} zu Mittag gibt
 MenusWhenLocation	was es {When} bei der {Location} zu Mittag gibt
 MenusWhenLocation	was es {When} im {Location} zu Mittag gibt
@@ -17,6 +7,16 @@ MenusWhenLocation	was es {When} beim {Location} zum Mittag gibt
 MenusWhenLocation	was es {When} bei der {Location} zum Mittag gibt
 MenusWhenLocation	was es {When} im {Location} zum Mittag gibt
 MenusWhenLocation	was es {When} in der {Location} zum Mittag gibt
+
+MenusWhenLocation	was es {When} beim {Location} zu Essen gibt
+MenusWhenLocation	was es {When} bei der {Location} zu Essen gibt
+MenusWhenLocation	was es {When} im {Location} zu Essen gibt
+MenusWhenLocation	was es {When} in der {Location} zu Essen gibt
+
+MenusWhenLocation	was es {When} beim {Location} zum Essen gibt
+MenusWhenLocation	was es {When} bei der {Location} zum Essen gibt
+MenusWhenLocation	was es {When} im {Location} zum Essen gibt
+MenusWhenLocation	was es {When} in der {Location} zum Essen gibt
 
 MenusWhenLocation	was es {When} beim {Location} zu Mittagessen gibt
 MenusWhenLocation	was es {When} bei der {Location} zu Mittagessen gibt
@@ -30,16 +30,6 @@ MenusWhenLocation	was es {When} in der {Location} zum Mittagessen gibt
 
 
 
-MenusWhenLocation	was es beim {Location} {When} zu Essen gibt
-MenusWhenLocation	was es bei der {Location} {When} zu Essen gibt
-MenusWhenLocation	was es im {Location} {When} zu Essen gibt
-MenusWhenLocation	was es in der {Location} {When} zu Essen gibt
-
-MenusWhenLocation	was es beim {Location} {When} zum Essen gibt
-MenusWhenLocation	was es bei der {Location} {When} zum Essen gibt
-MenusWhenLocation	was es im {Location} {When} zum Essen gibt
-MenusWhenLocation	was es in der {Location} {When} zum Essen gibt
-
 MenusWhenLocation	was es beim {Location} {When} zu Mittag gibt
 MenusWhenLocation	was es bei der {Location} {When} zu Mittag gibt
 MenusWhenLocation	was es im {Location} {When} zu Mittag gibt
@@ -49,6 +39,16 @@ MenusWhenLocation	was es beim {Location} {When} zum Mittag gibt
 MenusWhenLocation	was es bei der {Location} {When} zum Mittag gibt
 MenusWhenLocation	was es im {Location} {When} zum Mittag gibt
 MenusWhenLocation	was es in der {Location} {When} zum Mittag gibt
+
+MenusWhenLocation	was es beim {Location} {When} zu Essen gibt
+MenusWhenLocation	was es bei der {Location} {When} zu Essen gibt
+MenusWhenLocation	was es im {Location} {When} zu Essen gibt
+MenusWhenLocation	was es in der {Location} {When} zu Essen gibt
+
+MenusWhenLocation	was es beim {Location} {When} zum Essen gibt
+MenusWhenLocation	was es bei der {Location} {When} zum Essen gibt
+MenusWhenLocation	was es im {Location} {When} zum Essen gibt
+MenusWhenLocation	was es in der {Location} {When} zum Essen gibt
 
 MenusWhenLocation	was es beim {Location} {When} zu Mittagessen gibt
 MenusWhenLocation	was es bei der {Location} {When} zu Mittagessen gibt
@@ -62,16 +62,6 @@ MenusWhenLocation	was es in der {Location} {When} zum Mittagessen gibt
 
 
 
-MenusWhenLocation	was gibt es {When} beim {Location} zu Essen
-MenusWhenLocation	was gibt es {When} bei der {Location} zu Essen
-MenusWhenLocation	was gibt es {When} im {Location} zu Essen
-MenusWhenLocation	was gibt es {When} in der {Location} zu Essen
-
-MenusWhenLocation	was gibt es {When} beim {Location} zum Essen
-MenusWhenLocation	was gibt es {When} bei der {Location} zum Essen
-MenusWhenLocation	was gibt es {When} im {Location} zum Essen
-MenusWhenLocation	was gibt es {When} in der {Location} zum Essen
-
 MenusWhenLocation	was gibt es {When} beim {Location} zu Mittag
 MenusWhenLocation	was gibt es {When} bei der {Location} zu Mittag
 MenusWhenLocation	was gibt es {When} im {Location} zu Mittag
@@ -81,6 +71,16 @@ MenusWhenLocation	was gibt es {When} beim {Location} zum Mittag
 MenusWhenLocation	was gibt es {When} bei der {Location} zum Mittag
 MenusWhenLocation	was gibt es {When} im {Location} zum Mittag
 MenusWhenLocation	was gibt es {When} in der {Location} zum Mittag
+
+MenusWhenLocation	was gibt es {When} beim {Location} zu Essen
+MenusWhenLocation	was gibt es {When} bei der {Location} zu Essen
+MenusWhenLocation	was gibt es {When} im {Location} zu Essen
+MenusWhenLocation	was gibt es {When} in der {Location} zu Essen
+
+MenusWhenLocation	was gibt es {When} beim {Location} zum Essen
+MenusWhenLocation	was gibt es {When} bei der {Location} zum Essen
+MenusWhenLocation	was gibt es {When} im {Location} zum Essen
+MenusWhenLocation	was gibt es {When} in der {Location} zum Essen
 
 MenusWhenLocation	was gibt es {When} beim {Location} zu Mittagessen
 MenusWhenLocation	was gibt es {When} bei der {Location} zu Mittagessen
@@ -94,16 +94,6 @@ MenusWhenLocation	was gibt es {When} in der {Location} zum Mittagessen
 
 
 
-MenusWhenLocation	was gibt es beim {Location} {When} zu Essen
-MenusWhenLocation	was gibt es bei der {Location} {When} zu Essen
-MenusWhenLocation	was gibt es im {Location} {When} zu Essen
-MenusWhenLocation	was gibt es in der {Location} {When} zu Essen
-
-MenusWhenLocation	was gibt es beim {Location} {When} zum Essen
-MenusWhenLocation	was gibt es bei der {Location} {When} zum Essen
-MenusWhenLocation	was gibt es im {Location} {When} zum Essen
-MenusWhenLocation	was gibt es in der {Location} {When} zum Essen
-
 MenusWhenLocation	was gibt es beim {Location} {When} zu Mittag
 MenusWhenLocation	was gibt es bei der {Location} {When} zu Mittag
 MenusWhenLocation	was gibt es im {Location} {When} zu Mittag
@@ -113,6 +103,16 @@ MenusWhenLocation	was gibt es beim {Location} {When} zum Mittag
 MenusWhenLocation	was gibt es bei der {Location} {When} zum Mittag
 MenusWhenLocation	was gibt es im {Location} {When} zum Mittag
 MenusWhenLocation	was gibt es in der {Location} {When} zum Mittag
+
+MenusWhenLocation	was gibt es beim {Location} {When} zu Essen
+MenusWhenLocation	was gibt es bei der {Location} {When} zu Essen
+MenusWhenLocation	was gibt es im {Location} {When} zu Essen
+MenusWhenLocation	was gibt es in der {Location} {When} zu Essen
+
+MenusWhenLocation	was gibt es beim {Location} {When} zum Essen
+MenusWhenLocation	was gibt es bei der {Location} {When} zum Essen
+MenusWhenLocation	was gibt es im {Location} {When} zum Essen
+MenusWhenLocation	was gibt es in der {Location} {When} zum Essen
 
 MenusWhenLocation	was gibt es beim {Location} {When} zu Mittagessen
 MenusWhenLocation	was gibt es bei der {Location} {When} zu Mittagessen
@@ -126,16 +126,6 @@ MenusWhenLocation	was gibt es in der {Location} {When} zum Mittagessen
 
 
 
-MenusWhenLocation	was gibts {When} beim {Location} zu Essen
-MenusWhenLocation	was gibts {When} bei der {Location} zu Essen
-MenusWhenLocation	was gibts {When} im {Location} zu Essen
-MenusWhenLocation	was gibts {When} in der {Location} zu Essen
-
-MenusWhenLocation	was gibts {When} beim {Location} zum Essen
-MenusWhenLocation	was gibts {When} bei der {Location} zum Essen
-MenusWhenLocation	was gibts {When} im {Location} zum Essen
-MenusWhenLocation	was gibts {When} in der {Location} zum Essen
-
 MenusWhenLocation	was gibts {When} beim {Location} zu Mittag
 MenusWhenLocation	was gibts {When} bei der {Location} zu Mittag
 MenusWhenLocation	was gibts {When} im {Location} zu Mittag
@@ -145,6 +135,16 @@ MenusWhenLocation	was gibts {When} beim {Location} zum Mittag
 MenusWhenLocation	was gibts {When} bei der {Location} zum Mittag
 MenusWhenLocation	was gibts {When} im {Location} zum Mittag
 MenusWhenLocation	was gibts {When} in der {Location} zum Mittag
+
+MenusWhenLocation	was gibts {When} beim {Location} zu Essen
+MenusWhenLocation	was gibts {When} bei der {Location} zu Essen
+MenusWhenLocation	was gibts {When} im {Location} zu Essen
+MenusWhenLocation	was gibts {When} in der {Location} zu Essen
+
+MenusWhenLocation	was gibts {When} beim {Location} zum Essen
+MenusWhenLocation	was gibts {When} bei der {Location} zum Essen
+MenusWhenLocation	was gibts {When} im {Location} zum Essen
+MenusWhenLocation	was gibts {When} in der {Location} zum Essen
 
 MenusWhenLocation	was gibts {When} beim {Location} zu Mittagessen
 MenusWhenLocation	was gibts {When} bei der {Location} zu Mittagessen
@@ -158,16 +158,6 @@ MenusWhenLocation	was gibts {When} in der {Location} zum Mittagessen
 
 
 
-MenusWhenLocation	was gibts beim {Location} {When} zu Essen
-MenusWhenLocation	was gibts bei der {Location} {When} zu Essen
-MenusWhenLocation	was gibts im {Location} {When} zu Essen
-MenusWhenLocation	was gibts in der {Location} {When} zu Essen
-
-MenusWhenLocation	was gibts beim {Location} {When} zum Essen
-MenusWhenLocation	was gibts bei der {Location} {When} zum Essen
-MenusWhenLocation	was gibts im {Location} {When} zum Essen
-MenusWhenLocation	was gibts in der {Location} {When} zum Essen
-
 MenusWhenLocation	was gibts beim {Location} {When} zu Mittag
 MenusWhenLocation	was gibts bei der {Location} {When} zu Mittag
 MenusWhenLocation	was gibts im {Location} {When} zu Mittag
@@ -177,6 +167,16 @@ MenusWhenLocation	was gibts beim {Location} {When} zum Mittag
 MenusWhenLocation	was gibts bei der {Location} {When} zum Mittag
 MenusWhenLocation	was gibts im {Location} {When} zum Mittag
 MenusWhenLocation	was gibts in der {Location} {When} zum Mittag
+
+MenusWhenLocation	was gibts beim {Location} {When} zu Essen
+MenusWhenLocation	was gibts bei der {Location} {When} zu Essen
+MenusWhenLocation	was gibts im {Location} {When} zu Essen
+MenusWhenLocation	was gibts in der {Location} {When} zu Essen
+
+MenusWhenLocation	was gibts beim {Location} {When} zum Essen
+MenusWhenLocation	was gibts bei der {Location} {When} zum Essen
+MenusWhenLocation	was gibts im {Location} {When} zum Essen
+MenusWhenLocation	was gibts in der {Location} {When} zum Essen
 
 MenusWhenLocation	was gibts beim {Location} {When} zu Mittagessen
 MenusWhenLocation	was gibts bei der {Location} {When} zu Mittagessen
