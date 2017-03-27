@@ -36,27 +36,35 @@ let handlers = {
 		let whenSlot = this.event.request.intent.slots.When;
 		let locationSlot = this.event.request.intent.slots.Location;
 
+		let speechOutput: string = "";
+
 		let location: Location = locations.get(locationSlot.value.toLowerCase());
-		request(location.getUrl(), (error, response, body) => {
-			location.getParser().setHtml(body);
-			location.loadWeeklyMenu();
+		if (location) {
+			request(location.getUrl(), (error, response, body) => {
+				location.getParser().setHtml(body);
+				location.loadWeeklyMenu();
 
-			let day: Array<Menu> = location.getWeeklyMenu().getDays().get(whenSlot.value);
-			if (day && day.length) {
-				let menuNames: Array<string> = [];
-				day.forEach((menu: Menu) => {
-					menuNames.push(menu.getName());
-				});
+				let day: Array<Menu> = location.getWeeklyMenu().getDays().get(whenSlot.value);
+				if (day && day.length) {
+					let menuNames: Array<string> = [];
+					day.forEach((menu: Menu) => {
+						menuNames.push(menu.getName());
+					});
 
-				let speechOutput: string = menuNames.join(". ");
+					speechOutput = menuNames.join(". ");
+				}
+				else {
+					speechOutput = "Leider kein Gewinn.";
+				}
+
 				this.emit(":tell", speechOutput);
-			}
-			else {
-				this.emit(":tell", "Leider kein Gewinn.");
-			}
 
-			this.context.succeed();
-		});
+				this.context.succeed();
+			});
+		}
+		else {
+			this.context.fail();
+		}
 	}
 };
 

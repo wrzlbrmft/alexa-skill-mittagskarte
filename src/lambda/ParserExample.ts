@@ -8,7 +8,7 @@ export class ParserExample extends AbstractParser {
 	}
 
 	public parseStartDate(): string {
-		return "yyyy-mm-dd";
+		return "YYYY-MM-DD";
 	}
 
 	public parseDay(weekday: Weekday): Array<Menu> {

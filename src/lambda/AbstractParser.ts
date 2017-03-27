@@ -27,8 +27,8 @@ export abstract class AbstractParser {
 
 	public parseWeeklyMenu(): WeeklyMenu {
 		let weeklyMenu: WeeklyMenu = new WeeklyMenu(this.parseStartDate());
+		let keyMoment = moment(weeklyMenu.getStartDate());
 		weekdays.forEach((key: number) => {
-			let keyMoment = moment(weeklyMenu.getStartDate());
 			let day: Array<Menu> = this.parseDay(key);
 			if (day.length) {
 				weeklyMenu.getDays().put(keyMoment.add(key - 1, "days").format("YYYY-MM-DD"), day);

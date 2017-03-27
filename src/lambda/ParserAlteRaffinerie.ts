@@ -12,12 +12,12 @@ export class ParserAlteRaffinerie extends AbstractParser {
 	}
 
 	public parseStartDate(): string {
-		let startDate: string = "yyyy-mm-dd";
+		let startDate: string = "YYYY-MM-DD";
 		let $ = cheerio.load(this.getHtml());
 
 		$("strong").each((index, element) => {
 			let text: string = $(element).text()
-				.replace(/(\r?\n|\r)/g, " ")	// remove unnecessary newlines
+				.replace(/(\r?\n|\r)/g, " ")	// remove newlines
 				.trim();						// trim
 
 			if (0 == text.toLowerCase().indexOf("wochenkarte von montag ")) {
@@ -39,7 +39,7 @@ export class ParserAlteRaffinerie extends AbstractParser {
 		let isWeekday: boolean = false;
 		$("p,strong").each((index, element) => {
 			let text: string = $(element).text()
-				.replace(/(\r?\n|\r)/g, " ")	// remove unnecessary newlines
+				.replace(/(\r?\n|\r)/g, " ")	// remove newlines
 				.trim();						// trim
 
 			if ("" == text) {
@@ -49,10 +49,10 @@ export class ParserAlteRaffinerie extends AbstractParser {
 			if ("p" == element.name.toLowerCase()) {
 				if (isWeekday) {
 					day.push(new Menu(text
-						.split("\t")[0]			// menu names and prices are separated by one or more tabs
-						.replace(/&/g, "und")	// use "und" instead of ampersands
-						.replace(/ – /g, "-")	// do not use typographic hyphens
-						.replace(/\s+/g, " ")	// dedupe whitespace
+						.split("\t")[0]			// menu names and prices are separated with one or more tabs
+						.replace(/&/g, "und")	// use "und" instead of "&"
+						.replace(/ – /g, "-")	// use "-" instead of typographic hyphens
+						.replace(/\s+/g, " ")	// collapse whitespace
 					));
 				}
 			}
