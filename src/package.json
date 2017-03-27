@@ -7,11 +7,13 @@
     "moment": "*",
     "request": "*",
     "string": "*",
+    "winston": "*",
     "@types/alexa-sdk": "*",
     "@types/cheerio": "*",
     "@types/node": "*",
     "@types/request": "*",
-    "@types/string": "*"
+    "@types/string": "*",
+    "@types/winston": "*"
   },
   "devDependencies": {
     "typescript": "*",
