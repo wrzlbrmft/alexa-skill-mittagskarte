@@ -1,5 +1,17 @@
 {
 	"intents": [
-		{}
+		{
+			"intent": "MenusWhenLocation",
+			"slots": [
+				{
+					"name": "When",
+					"type": "AMAZON.DATE"
+				},
+				{
+					"name": "Location",
+					"type": "LOCATION"
+				}
+			]
+		}
 	]
 }
