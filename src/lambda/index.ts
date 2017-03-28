@@ -143,15 +143,17 @@ export function handler(event, context, callback) {
 }
 
 /* testing *
-let location: Location = locations.get("nachtkantine");
+let location: Location = locations.get("crowns");
 request(location.getUrl(), (error, response, body) => {
 	location.getParser().setHtml(body);
 	location.loadWeeklyMenu();
 
+	console.log("startDate=" + location.getWeeklyMenu().getStartDate());
+
 	location.getWeeklyMenu().getDays().forEach((date: string, day: Array<Menu>) => {
-		console.log(date);
+		console.log(date + ":");
 		day.forEach((menu: Menu) => {
-			console.log("    ", menu.getName());
+			console.log("    - " + menu.getName());
 		});
 	});
 });
