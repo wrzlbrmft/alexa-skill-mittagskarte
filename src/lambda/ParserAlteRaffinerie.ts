@@ -26,7 +26,7 @@ export class ParserAlteRaffinerie extends AbstractParser {
 		let $ = cheerio.load(this.getHtml());
 
 		$("strong").each((index, element) => {
-			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
 			let textString = S(text).trim(); // trim
 
 			if (0 == textString.s.toLowerCase().indexOf("wochenkarte von montag ")) {
@@ -46,7 +46,7 @@ export class ParserAlteRaffinerie extends AbstractParser {
 
 		let isWeekday: boolean = false;
 		$("p,strong").each((index, element) => {
-			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
 			let textString = S(text).trim(); // trim
 
 			if (textString.isEmpty()) {

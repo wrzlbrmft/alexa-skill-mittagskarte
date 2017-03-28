@@ -26,7 +26,7 @@ export class ParserNachtkantine extends AbstractParser {
 		let $ = cheerio.load(this.getHtml());
 
 		$("h4").each((index, element) => {
-			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
 			let textString = S(text).trim(); // trim
 
 			if (0 == textString.s.toLowerCase().indexOf("montag, ")) {
@@ -46,7 +46,7 @@ export class ParserNachtkantine extends AbstractParser {
 
 		let isWeekday: boolean = false;
 		$("span,h4").each((index, element) => {
-			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
 			let textString = S(text).trim(); // trim
 
 			if ("span" == element.name.toLowerCase()) {

@@ -26,7 +26,7 @@ export class ParserCrowns extends AbstractParser {
 		let $ = cheerio.load(this.getHtml());
 
 		$("#main-content p").each((index, element) => {
-			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
 			let textString = S(text).trim(); // trim
 
 			if (0 == textString.s.toLowerCase().indexOf("in der woche von ")) {
@@ -63,7 +63,7 @@ export class ParserCrowns extends AbstractParser {
 		let isWeekday: boolean = false;
 		let menuName: string = "";
 		$("#main-content p,#main-content h3").each((index, element) => {
-			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
 			let textString = S(text).trim(); // trim
 
 			if ("p" == element.name.toLowerCase()) {

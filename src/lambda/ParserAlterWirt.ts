@@ -26,7 +26,7 @@ export class ParserAlterWirt extends AbstractParser {
 		let $ = cheerio.load(this.getHtml());
 
 		$("table.contentpaneopen p").each((index, element) => {
-			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
 			let textString = S(text).trim(); // trim
 
 			if (0 == textString.s.toLowerCase().indexOf("vom ")) {
@@ -46,7 +46,7 @@ export class ParserAlterWirt extends AbstractParser {
 
 		let isWeekday: boolean = false;
 		$("table.contentpaneopen p,table.contentpaneopen strong").each((index, element) => {
-			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
 			let textString = S(text).trim(); // trim
 
 			if ("p" == element.name.toLowerCase()) {
