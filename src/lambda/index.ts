@@ -143,7 +143,7 @@ export function handler(event, context, callback) {
 }
 
 /* testing *
-let location: Location = locations.get("crowns");
+let location: Location = locations.get("alter wirt");
 request(location.getUrl(), (error, response, body) => {
 	location.getParser().setHtml(body);
 	location.loadWeeklyMenu();
