@@ -45,34 +45,69 @@ export class ParserCrowns extends AbstractParser {
 		let day: Array<Menu> = [];
 		let $ = cheerio.load(this.getHtml());
 
+		function addMenuToDay(menuName: string) {
+			let menuNameString = S(menuName)
+				.decodeHTMLEntities()	// decode HTML entities
+				.replaceAll("“", "\"")	// use regular quotes instead of typographic quotes
+				.replaceAll("”", "\"")	// use regular quotes instead of typographic quotes
+				.chompLeft("1.")		// remove "1." at the beginning
+				.chompLeft("2.")		// remove "2." at the beginning
+				.trimLeft()				// trim at the beginning
+				.collapseWhitespace();	// collapse whitespace
+
+			if (!menuNameString.isEmpty()) {
+				day.push(new Menu(menuNameString.s));
+			}
+		}
+
 		let isWeekday: boolean = false;
+		let menuName: string = "";
 		$("#main-content p,#main-content h3").each((index, element) => {
 			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
 			let textString = S(text).trim(); // trim
 
 			if ("p" == element.name.toLowerCase()) {
 				if (isWeekday) {
-					if (-1 == textString.s.toLowerCase().indexOf("oder")) {
-						let menuNameString = textString
-							.decodeHTMLEntities()	// decode HTML entities
-							.replaceAll("“", "\"")	// use regular quotes instead of typographic quotes
-							.replaceAll("”", "\"")	// use regular quotes instead of typographic quotes
-							.chompLeft("1.")		// remove "1." at the beginning
-							.chompLeft("2.")		// remove "2." at the beginning
-							.trimLeft()				// trim at the beginning
-							.collapseWhitespace();	// collapse whitespace
+					if (
+						textString.startsWith("1.") || textString.startsWith("2.")
+						|| "oder" == textString.s.toLowerCase() || textString.isEmpty()
+					) {
+						// if line is a new menu or a separator
 
-						if (!menuNameString.isEmpty()) {
-							day.push(new Menu(menuNameString.s));
+						addMenuToDay(menuName);
+						menuName = "";
+
+						if (!("oder" == textString.s.toLowerCase() || textString.isEmpty())) {
+							// if line is not a separator
+							menuName = textString.s;
 						}
+					}
+					else {
+						// if line continues with a menu
+
+						menuName += (" " + textString.s);
 					}
 				}
 			}
 
 			if ("h3" == element.name.toLowerCase()) {
+				if (isWeekday) {
+					// pending menu?
+
+					addMenuToDay(menuName);
+					menuName = "";
+				}
+
 				isWeekday = (textString.s.toLowerCase() == weekdays.get(weekday).toLowerCase());
 			}
 		});
+
+		if (isWeekday) {
+			// pending menu?
+
+			addMenuToDay(menuName);
+			// menuName = "";
+		}
 
 		return day;
 	}
