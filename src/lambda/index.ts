@@ -135,3 +135,18 @@ export function handler(event, context, callback) {
 	alexa.registerHandlers(handlers);
 	alexa.execute();
 }
+
+/* testing *
+let location: Location = locations.get("nachtkantine");
+request(location.getUrl(), (error, response, body) => {
+	location.getParser().setHtml(body);
+	location.loadWeeklyMenu();
+
+	location.getWeeklyMenu().getDays().forEach((date: string, day: Array<Menu>) => {
+		console.log(date);
+		day.forEach((menu: Menu) => {
+			console.log("    ", menu.getName());
+		});
+	});
+});
+// */

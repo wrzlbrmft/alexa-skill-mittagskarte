@@ -26,14 +26,12 @@ export class ParserAlteRaffinerie extends AbstractParser {
 		let $ = cheerio.load(this.getHtml());
 
 		$("strong").each((index, element) => {
-			let text: string = $(element).text()
-				.replace(/(\r?\n|\r)/g, " ")	// remove newlines
-				.trim();						// trim
+			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+			let textString = S(text).trim(); // trim
 
-			if (0 == text.toLowerCase().indexOf("wochenkarte von montag ")) {
-				let textString = S(text);
+			if (0 == textString.s.toLowerCase().indexOf("wochenkarte von montag ")) {
 				let startDateString = textString.between("ontag ", " bis");
-				let startDateMoment = moment(startDateString.s, "D. MMMM", "de");
+				let startDateMoment = moment(startDateString.trim().s, "D. MMMM", "de");
 
 				startDate = startDateMoment.format("YYYY-MM-DD");
 			}
@@ -48,27 +46,27 @@ export class ParserAlteRaffinerie extends AbstractParser {
 
 		let isWeekday: boolean = false;
 		$("p,strong").each((index, element) => {
-			let text: string = $(element).text()
-				.replace(/(\r?\n|\r)/g, " ")	// remove newlines
-				.trim();						// trim
+			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+			let textString = S(text).trim(); // trim
 
-			if ("" == text) {
+			if (textString.isEmpty()) {
 				isWeekday = false;
 			}
 
 			if ("p" == element.name.toLowerCase()) {
 				if (isWeekday) {
-					day.push(new Menu(text
-						.split("\t")[0]			// menu names and prices are separated with one or more tabs
-						.replace(/&/g, "und")	// use "und" instead of "&"
-						.replace(/ – /g, "-")	// use "-" instead of typographic hyphens
-						.replace(/\s+/g, " ")	// collapse whitespace
-					));
+					let menuNameString = textString
+						.between("", "\t")		// menu names and prices are separated with one or more tabs
+						.replaceAll("&", "und")	// use "und" instead of "&"
+						.replaceAll(" – ", "-") // use "-" instead of typographic hyphens
+						.collapseWhitespace();	// collapse whitespace
+
+					day.push(new Menu(menuNameString.s));
 				}
 			}
 
 			if ("strong" == element.name.toLowerCase()) {
-				isWeekday = (text.toLowerCase() == weekdays.get(weekday).toLowerCase());
+				isWeekday = (textString.s.toLowerCase() == weekdays.get(weekday).toLowerCase());
 			}
 		});
 
