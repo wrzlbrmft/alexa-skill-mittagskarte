@@ -82,12 +82,12 @@ let handlers = {
 
 					if (1 == day.length) {
 						// just one menu
-						speechOutput += ` ${day[0].getName()}.`;
+						speechOutput += ` <break time='50ms' />${day[0].getName()}.`;
 					}
 					else {
 						// more than one menu
 						for (let i = 0; i < day.length; i++) {
-							speechOutput += ` als Menü ${i + 1} ${day[i].getName()}`;
+							speechOutput += ` als Menü ${i + 1} <break time='100ms' />${day[i].getName()}`;
 
 							switch (day.length - i) {
 								case 1:
@@ -97,12 +97,12 @@ let handlers = {
 
 								case 2:
 									// just one more
-									speechOutput += " und";
+									speechOutput += "<break time='50ms' /> und";
 									break;
 
 								default:
 									// more than one more
-									speechOutput += ",";
+									speechOutput += "<break time='50ms' />,";
 									break;
 							}
 						}
