@@ -5,10 +5,12 @@ import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
 import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 import { Menu } from "./Menu";
+import { weekdays } from "./Weekday";
 
 import * as winston from "winston";
 import * as Alexa from "alexa-sdk";
 import * as request from "request";
+import * as moment from "moment";
 
 let logger = new winston.Logger({
 	level: process.env.LOG_LEVEL || "info",
@@ -67,12 +69,44 @@ let handlers = {
 				if (day && day.length) {
 					logger.debug("%d menus found", day.length);
 
-					let menuNames: Array<string> = [];
-					day.forEach((menu: Menu) => {
-						menuNames.push(menu.getName());
-					});
+					if (moment().isSame(dateSlot.value, "day")) {
+						// today
+						speechOutput = "Heute";
+					}
+					else {
+						// not today
+						speechOutput = `Am ${weekdays.get(moment(dateSlot.value).weekday())}`;
+					}
 
-					speechOutput = menuNames.join(". ");
+					speechOutput += ` gibt es ${location.getNameAt()}`;
+
+					if (1 == day.length) {
+						// just one menu
+						speechOutput += ` ${day[0].getName()}`;
+					}
+					else {
+						// more than one menu
+						for (let i = 0; i < day.length; i++) {
+							speechOutput += ` als Menü ${i + 1} ${day[i].getName()}`;
+
+							switch (day.length - 1) {
+								case 1:
+									// no more
+									speechOutput += ".";
+									break;
+
+								case 2:
+									// just one more
+									speechOutput += " und";
+									break;
+
+								default:
+									// more than one more
+									speechOutput += ",";
+									break;
+							}
+						}
+					}
 				}
 				else {
 					logger.warn("no menus found");
