@@ -59,7 +59,7 @@ let handlers = {
 			logger.debug("location url='%s'", location.getUrl());
 			request(location.getUrl(), (error, response, body) => {
 				logger.debug("request error='%s'", error);
-				// logger.silly("request response='%s'", response);
+				// logger.silly("request response=%j", response);
 				logger.silly("request body='%s'", body);
 
 				location.getParser().setHtml(body);
