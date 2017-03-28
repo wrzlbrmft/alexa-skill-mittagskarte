@@ -45,7 +45,7 @@ export class ParserNachtkantine extends AbstractParser {
 		let $ = cheerio.load(this.getHtml());
 
 		let isWeekday: boolean = false;
-		$("h4,span").each((index, element) => {
+		$("span,h4").each((index, element) => {
 			let text: string =	$(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
 			let textString = S(text).trim(); // trim
 
@@ -57,7 +57,9 @@ export class ParserNachtkantine extends AbstractParser {
 						.replaceAll("“", "\"")	// use regular quotes instead of typographic quotes
 						.collapseWhitespace();	// collapse whitespace
 
-					day.push(new Menu(menuNameString.s));
+					if (!menuNameString.isEmpty()) {
+						day.push(new Menu(menuNameString.s));
+					}
 				}
 			}
 

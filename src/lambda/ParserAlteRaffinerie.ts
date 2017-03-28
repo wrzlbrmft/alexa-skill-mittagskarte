@@ -61,7 +61,9 @@ export class ParserAlteRaffinerie extends AbstractParser {
 						.replaceAll(" – ", "-") // use "-" instead of typographic hyphens
 						.collapseWhitespace();	// collapse whitespace
 
-					day.push(new Menu(menuNameString.s));
+					if (!menuNameString.isEmpty()) {
+						day.push(new Menu(menuNameString.s));
+					}
 				}
 			}
 
