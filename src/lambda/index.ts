@@ -2,6 +2,7 @@ import { MultiStringMap } from "./MultiStringMap";
 import { Location } from "./Location";
 import { ParserExample } from "./ParserExample";
 import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
+import { ParserAlterWirt } from "./ParserAlterWirt";
 import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
 import { Menu } from "./Menu";
@@ -32,6 +33,11 @@ locations.multiPut(["alte raffinerie", "storchenburg"],
 	new Location("in der Alten Raffinerie",
 		"http://www.alte-raffinerie.de/index.php/Essen.html",
 		new ParserAlteRaffinerie()));
+
+locations.multiPut(["alter wirt", "alter wirt in hohenbrunn"],
+	new Location("beim Alten Wirt in Hohenbrunn",
+		"http://www.alterwirt-hohenbrunn.com/speisen-a-getraenke/-wochenkarte.html",
+		new ParserAlterWirt()));
 
 locations.put("crowns",
 	new Location("im Crowns",
