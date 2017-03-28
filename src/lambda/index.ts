@@ -82,7 +82,7 @@ let handlers = {
 
 					if (1 == day.length) {
 						// just one menu
-						speechOutput += ` ${day[0].getName()}`;
+						speechOutput += ` ${day[0].getName()}.`;
 					}
 					else {
 						// more than one menu
@@ -107,6 +107,8 @@ let handlers = {
 							}
 						}
 					}
+
+					speechOutput += " Guten Appetit!";
 				}
 				else {
 					logger.warn("no menus found");
