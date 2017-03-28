@@ -89,7 +89,7 @@ let handlers = {
 						for (let i = 0; i < day.length; i++) {
 							speechOutput += ` als Menü ${i + 1} ${day[i].getName()}`;
 
-							switch (day.length - 1) {
+							switch (day.length - i) {
 								case 1:
 									// no more
 									speechOutput += ".";
