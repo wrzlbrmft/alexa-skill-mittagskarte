@@ -25,8 +25,8 @@ export class ParserExample extends AbstractParser {
 
 	public parseDay(weekday: Weekday): Array<Menu> {
 		let day: Array<Menu> = [];
-		for (let i: number = 1; i <= 3; i++) {
-			day.push(new Menu(`Menü ${i} am ${weekdays.get(weekday)}`));
+		for (let i: number = 0; i < 3; i++) {
+			day.push(new Menu(`Menü ${i + 1} am ${weekdays.get(weekday)}`));
 		}
 
 		return day;
