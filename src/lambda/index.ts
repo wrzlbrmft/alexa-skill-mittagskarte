@@ -93,7 +93,7 @@ let handlers = {
 					else {
 						// more than one menu
 						for (let i = 0; i < day.length; i++) {
-							speechOutput += ` als Menü ${i + 1} <break time='100ms' />${day[i].getName()}`;
+							speechOutput += ` als Menü ${i + 1} <break time='50ms' />${day[i].getName()}`;
 
 							switch (day.length - i) {
 								case 1:
