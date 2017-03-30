@@ -1,3 +1,8 @@
+MenusOnDateAtLocation	was es {Date} beim {Location} gibt
+MenusOnDateAtLocation	was es {Date} bei der {Location} gibt
+MenusOnDateAtLocation	was es {Date} im {Location} gibt
+MenusOnDateAtLocation	was es {Date} in der {Location} gibt
+
 MenusOnDateAtLocation	was es {Date} beim {Location} zu Mittag gibt
 MenusOnDateAtLocation	was es {Date} bei der {Location} zu Mittag gibt
 MenusOnDateAtLocation	was es {Date} im {Location} zu Mittag gibt
@@ -29,6 +34,11 @@ MenusOnDateAtLocation	was es {Date} im {Location} zum Mittagessen gibt
 MenusOnDateAtLocation	was es {Date} in der {Location} zum Mittagessen gibt
 
 
+
+MenusOnDateAtLocation	was es beim {Location} {Date} gibt
+MenusOnDateAtLocation	was es bei der {Location} {Date} gibt
+MenusOnDateAtLocation	was es im {Location} {Date} gibt
+MenusOnDateAtLocation	was es in der {Location} {Date} gibt
 
 MenusOnDateAtLocation	was es beim {Location} {Date} zu Mittag gibt
 MenusOnDateAtLocation	was es bei der {Location} {Date} zu Mittag gibt
@@ -62,6 +72,11 @@ MenusOnDateAtLocation	was es in der {Location} {Date} zum Mittagessen gibt
 
 
 
+MenusOnDateAtLocation	was gibt es {Date} beim {Location}
+MenusOnDateAtLocation	was gibt es {Date} bei der {Location}
+MenusOnDateAtLocation	was gibt es {Date} im {Location}
+MenusOnDateAtLocation	was gibt es {Date} in der {Location}
+
 MenusOnDateAtLocation	was gibt es {Date} beim {Location} zu Mittag
 MenusOnDateAtLocation	was gibt es {Date} bei der {Location} zu Mittag
 MenusOnDateAtLocation	was gibt es {Date} im {Location} zu Mittag
@@ -93,6 +108,11 @@ MenusOnDateAtLocation	was gibt es {Date} im {Location} zum Mittagessen
 MenusOnDateAtLocation	was gibt es {Date} in der {Location} zum Mittagessen
 
 
+
+MenusOnDateAtLocation	was gibt es beim {Location} {Date}
+MenusOnDateAtLocation	was gibt es bei der {Location} {Date}
+MenusOnDateAtLocation	was gibt es im {Location} {Date}
+MenusOnDateAtLocation	was gibt es in der {Location} {Date}
 
 MenusOnDateAtLocation	was gibt es beim {Location} {Date} zu Mittag
 MenusOnDateAtLocation	was gibt es bei der {Location} {Date} zu Mittag
@@ -126,6 +146,11 @@ MenusOnDateAtLocation	was gibt es in der {Location} {Date} zum Mittagessen
 
 
 
+MenusOnDateAtLocation	was gibts {Date} beim {Location}
+MenusOnDateAtLocation	was gibts {Date} bei der {Location}
+MenusOnDateAtLocation	was gibts {Date} im {Location}
+MenusOnDateAtLocation	was gibts {Date} in der {Location}
+
 MenusOnDateAtLocation	was gibts {Date} beim {Location} zu Mittag
 MenusOnDateAtLocation	was gibts {Date} bei der {Location} zu Mittag
 MenusOnDateAtLocation	was gibts {Date} im {Location} zu Mittag
@@ -157,6 +182,11 @@ MenusOnDateAtLocation	was gibts {Date} im {Location} zum Mittagessen
 MenusOnDateAtLocation	was gibts {Date} in der {Location} zum Mittagessen
 
 
+
+MenusOnDateAtLocation	was gibts beim {Location} {Date}
+MenusOnDateAtLocation	was gibts bei der {Location} {Date}
+MenusOnDateAtLocation	was gibts im {Location} {Date}
+MenusOnDateAtLocation	was gibts in der {Location} {Date}
 
 MenusOnDateAtLocation	was gibts beim {Location} {Date} zu Mittag
 MenusOnDateAtLocation	was gibts bei der {Location} {Date} zu Mittag

@@ -30,7 +30,7 @@ _"Alexa, frage Wochenkarte was es beim Alten Wirt übermorgen zu Mittag gibt."_
 
 Or colloquial:
 
-_"Alexa, frage Wochenkarte: Was gibt's am Freitag im Crowns zum Essen?"_
+_"Alexa, frage Wochenkarte: Was gibt's am Freitag im Crowns?"_
 
 ## Development Details
 
