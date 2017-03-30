@@ -137,6 +137,9 @@ let handlers = {
 };
 
 export function handler(event, context, callback) {
+	// see http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html#nodejs-prog-model-context-properties
+	context.callbackWaitsForEmptyEventLoop = false;
+
 	let alexa = Alexa.handler(event, context);
 	alexa.registerHandlers(handlers);
 	alexa.execute();
