@@ -5,6 +5,7 @@ import { ParserAlteRaffinerie } from "./ParserAlteRaffinerie";
 import { ParserAlterWirt } from "./ParserAlterWirt";
 import { ParserCrowns } from "./ParserCrowns";
 import { ParserNachtkantine } from "./ParserNachtkantine";
+import { WeeklyMenu } from "./WeeklyMenu";
 import { Menu } from "./Menu";
 import { weekdays } from "./Weekday";
 
@@ -21,6 +22,8 @@ let logger = new winston.Logger({
 		})
 	]
 });
+
+logger.info("BEGIN: lambda function");
 
 let locations: MultiStringMap<Location> = new MultiStringMap<Location>();
 
@@ -51,93 +54,123 @@ locations.put("nachtkantine",
 
 let handlers = {
 	"MenusOnDateAtLocation": function() {
-		let dateSlot = this.event.request.intent.slots.Date;
-		let locationSlot = this.event.request.intent.slots.Location;
+		logger.info("intent handler: MenusOnDateAtLocation");
 
-		logger.info("MenusOnDateAtLocation: date='%s', location='%s'", dateSlot.value, locationSlot.value);
+		let speechOutput: string = "Leider kein Gewinn.";
 
-		let speechOutput: string = "";
+		try {
+			let dateSlot = this.event.request.intent.slots.Date;
+			let locationSlot = this.event.request.intent.slots.Location;
+			logger.info("slots: date='%s', location='%s'", dateSlot.value, locationSlot.value);
 
-		let location: Location = locations.get(locationSlot.value.toLowerCase());
-		if (location) {
-			logger.debug("location found");
+			let location: Location = locations.get(locationSlot.value.toLowerCase());
+			if (location) {
+				logger.debug("location found");
 
-			logger.debug("location url='%s'", location.getUrl());
-			request(location.getUrl(), (error, response, body) => {
-				logger.debug("request error='%s'", error);
-				// logger.silly("request response=%j", response);
-				logger.silly("request body='%s'", body);
+				logger.debug("sending http request (url='%s')", location.getUrl());
+				request(location.getUrl(), (error, response, body) => {
+					logger.debug("request error='%s'", error);
+					// logger.silly("request response=%j", response);
+					logger.silly("request body='%s'", body);
 
-				location.getParser().setHtml(body);
-				location.loadWeeklyMenu();
+					logger.debug("loading weekly menu");
+					location.loadWeeklyMenu(body);
 
-				let day: Array<Menu> = location.getWeeklyMenu().getDays().get(dateSlot.value);
-				if (day && day.length) {
-					logger.debug("%d menus found", day.length);
+					logger.debug("getting weekly menu");
+					let weeklyMenu: WeeklyMenu = location.getWeeklyMenu();
+					if (weeklyMenu) {
 
-					if (moment().isSame(dateSlot.value, "day")) {
-						// today
-						speechOutput = "Heute";
-					}
-					else {
-						// not today
-						speechOutput = `Am ${weekdays.get(moment(dateSlot.value).weekday())}`;
-					}
+						// TODO: check if weekly menu is up-to-date
 
-					speechOutput += ` gibt es ${location.getNameAt()}`;
+						logger.debug("getting day");
+						let day: Array<Menu> = weeklyMenu.getDays().get(dateSlot.value);
+						if (day) {
+							if (day.length) {
+								logger.debug("%d menu(s) on day", day.length);
 
-					if (1 == day.length) {
-						// just one menu
-						speechOutput += ` <break time='50ms' />${day[0].getName()}.`;
-					}
-					else {
-						// more than one menu
-						for (let i = 0; i < day.length; i++) {
-							speechOutput += ` als Menü ${i + 1} <break time='50ms' />${day[i].getName()}`;
 
-							switch (day.length - i) {
-								case 1:
-									// no more
-									speechOutput += ".";
-									break;
 
-								case 2:
-									// just one more
-									speechOutput += "<break time='50ms' /> und";
-									break;
+								// >>>>>>>>> SPEECH OUTPUT >>>>>>>>>
 
-								default:
-									// more than one more
-									speechOutput += "<break time='50ms' />,";
-									break;
+								if (moment().isSame(dateSlot.value, "day")) {
+									// today
+									speechOutput = "Heute";
+								}
+								else {
+									// not today
+									speechOutput = `Am ${weekdays.get(moment(dateSlot.value).weekday())}`;
+								}
+								speechOutput += ` gibt es ${location.getNameAt()}`;
+
+								if (1 == day.length) {
+									// just one menu
+									speechOutput += ` <break time='50ms' />${day[0].getName()}.`;
+								}
+								else {
+									// more than one menu
+									for (let i = 0; i < day.length; i++) {
+										speechOutput += ` als Menü ${i + 1} <break time='50ms' />${day[i].getName()}`;
+										switch (day.length - i) {
+											case 1:
+												// no more menu
+												speechOutput += ".";
+												break;
+
+											case 2:
+												// just one more menu
+												speechOutput += "<break time='50ms' /> und";
+												break;
+
+											default:
+												// more than one more menu
+												speechOutput += "<break time='50ms' />,";
+												break;
+										}
+									}
+								}
+
+								speechOutput += " Guten Appetit!";
+
+								// <<<<<<<<< SPEECH OUTPUT <<<<<<<<<
+
+
+
+							}
+							else {
+								logger.warn("no menu(s) on day");
+								speechOutput = "Leider kann ich für diesen Tag auf der Wochenkarte nichts finden.";
 							}
 						}
+						else {
+							logger.error("error getting day");
+							speechOutput = "Leider kann ich für diesen Tag auf der Wochenkarte nichts finden.";
+						}
 					}
-
-					speechOutput += " Guten Appetit!";
-				}
-				else {
-					logger.warn("no menus found");
-
-					speechOutput = "Leider kein Gewinn.";
-				}
-
-				logger.debug("speechOutput='%s'", speechOutput);
-				this.emit(":tell", speechOutput);
-
-				this.context.succeed();
-			});
+					else {
+						logger.error("error getting weekly menu");
+						speechOutput = "Leider ist beim Verarbeiten der Wochenkarte ein Fehler aufgetreten.";
+					}
+				});
+			}
+			else {
+				logger.error("location not found");
+			}
 		}
-		else {
-			logger.error("location not found");
-
-			this.context.fail();
+		catch (e) {
+			logger.error(e.toString());
 		}
+
+		logger.info("speechOutput='%s'", speechOutput);
+		this.emit(":tell", speechOutput);
+
+		this.context.succeed();
 	}
 };
 
 export function handler(event, context, callback) {
-	// see http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html#nodejs-prog-model-context-properties
+	logger.info("intent handler");
+
+	// http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html#nodejs-prog-model-context-properties
 	context.callbackWaitsForEmptyEventLoop = false;
 
 	let alexa = Alexa.handler(event, context);
@@ -145,13 +178,14 @@ export function handler(event, context, callback) {
 	alexa.execute();
 }
 
-/* testing *
-let location: Location = locations.get("alter wirt");
-request(location.getUrl(), (error, response, body) => {
-	location.getParser().setHtml(body);
-	location.loadWeeklyMenu();
+logger.info("END: lambda function");
 
-	console.log("startDate=" + location.getWeeklyMenu().getStartDate());
+
+
+/* testing *
+let location: Location = locations.get("beispiel");
+request(location.getUrl(), (error, response, body) => {
+	location.loadWeeklyMenu(body);
 
 	location.getWeeklyMenu().getDays().forEach((date: string, day: Array<Menu>) => {
 		console.log(date + ":");

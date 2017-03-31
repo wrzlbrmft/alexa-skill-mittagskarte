@@ -22,52 +22,89 @@ export class ParserNachtkantine extends AbstractParser {
 	}
 
 	public parseStartDate(): string {
-		let startDate: string = "YYYY-MM-DD";
-		let $ = cheerio.load(this.getHtml());
+		try {
+			let startDate: string = undefined;
+			let $ = cheerio.load(this.getHtml());
 
-		$("h4").each((index, element) => {
-			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
-			let textString = S(text).trim(); // trim
+			$("h4").each((index, element) => {
+				let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+				let textString = S(text).trim(); // trim
 
-			if (0 == textString.s.toLowerCase().indexOf("montag, ")) {
-				let startDateString = textString.between("ontag, ");
-				let startDateMoment = moment(startDateString.trim().s, "D. MMMM", "de");
+				this.logger.silly("found potential start date => '%s'", textString.s);
 
-				startDate = startDateMoment.format("YYYY-MM-DD");
-			}
-		});
+				if (0 == textString.s.toLowerCase().indexOf("montag, ")) {
+					let startDateString = textString.between("ontag, ");
+					this.logger.debug("found start date string => '%s'", startDateString.s);
 
-		return startDate;
+					let format: string = "D. MMMM";
+					this.logger.debug("converting to date (format='%s')", format);
+					try {
+						let startDateMoment = moment(startDateString.trim().s, format, "de");
+						startDate = startDateMoment.format("YYYY-MM-DD");
+						this.logger.debug("date => '%s'", startDate);
+					}
+					catch (e) {
+						this.logger.error("error converting to date (%s)", e.toString());
+					}
+				}
+			});
+
+			return startDate;
+		}
+		catch (e) {
+			this.logger.error("error parsing start date (%s)", e.toString());
+		}
+
+		return undefined;
 	}
 
 	public parseDay(weekday: Weekday): Array<Menu> {
-		let day: Array<Menu> = [];
-		let $ = cheerio.load(this.getHtml());
+		try {
+			let day: Array<Menu> = [];
+			let $ = cheerio.load(this.getHtml());
 
-		let isWeekday: boolean = false;
-		$("span,h4").each((index, element) => {
-			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
-			let textString = S(text).trim(); // trim
+			let isWeekday: boolean = false;
+			$("span,h4").each((index, element) => {
+				let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+				let textString = S(text).trim(); // trim
 
-			if ("span" == element.name.toLowerCase()) {
-				if (isWeekday) {
-					let menuNameString = textString
-						.replaceAll("&", "und")	// use "und" instead of "&"
-						.replaceAll("„", "\"")	// use regular quotes instead of typographic quotes
-						.replaceAll("“", "\"")	// use regular quotes instead of typographic quotes
-						.collapseWhitespace();	// collapse whitespace
+				if ("span" == element.name.toLowerCase()) {
+					if (isWeekday) {
+						let menuNameString = textString
+							.replaceAll("&", "und")	// use "und" instead of "&"
+							.replaceAll("„", "\"")	// use regular quotes instead of typographic quotes
+							.replaceAll("“", "\"")	// use regular quotes instead of typographic quotes
+							.collapseWhitespace();	// collapse whitespace
 
-					if (!menuNameString.isEmpty()) {
-						day.push(new Menu(menuNameString.s));
+						if (!menuNameString.isEmpty()) {
+							this.logger.debug("found menu => '%s'", menuNameString.s);
+							day.push(new Menu(menuNameString.s));
+						}
 					}
 				}
-			}
 
-			if ("h4" == element.name.toLowerCase()) {
-				isWeekday = (0 == textString.s.toLowerCase().indexOf(weekdays.get(weekday).toLowerCase()));
-			}
-		});
+				if ("h4" == element.name.toLowerCase()) {
+					this.logger.silly("found potential weekday => '%s'", textString.s);
 
-		return day;
+					if (0 == textString.s.toLowerCase().indexOf(weekdays.get(weekday).toLowerCase())) {
+						this.logger.debug("found beginning of weekday ('%s')", textString.s);
+						isWeekday = true;
+					}
+					else {
+						if (isWeekday) {
+							this.logger.debug("found end of weekday");
+						}
+						isWeekday = false;
+					}
+				}
+			});
+
+			return day;
+		}
+		catch (e) {
+			this.logger.error("error parsing day (%s)", e.toString());
+		}
+
+		return undefined;
 	}
 }

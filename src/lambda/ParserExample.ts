@@ -20,13 +20,29 @@ export class ParserExample extends AbstractParser {
 	}
 
 	public parseStartDate(): string {
-		return moment().day(Weekday.Monday).format("YYYY-MM-DD");
+		let startDate: string = undefined;
+
+		let format: string = "YYYY-MM-DD";
+		this.logger.debug("creating date for last monday (format='%s')", format);
+		try {
+			startDate = moment().day(Weekday.Monday).format(format);
+			this.logger.debug("date => '%s'", startDate);
+		}
+		catch (e) {
+			this.logger.error("error creating date for last monday (%s)", e.toString());
+		}
+
+		return startDate;
 	}
 
 	public parseDay(weekday: Weekday): Array<Menu> {
 		let day: Array<Menu> = [];
+
 		for (let i: number = 0; i < 3; i++) {
-			day.push(new Menu(`Menü ${i + 1} am ${weekdays.get(weekday)}`));
+			let menuName: string = `Menü ${i + 1} am ${weekdays.get(weekday)}`;
+
+			this.logger.debug("create menu => '%s'", menuName);
+			day.push(new Menu(menuName));
 		}
 
 		return day;

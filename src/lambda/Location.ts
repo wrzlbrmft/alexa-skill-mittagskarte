@@ -1,9 +1,20 @@
 import { AbstractParser } from "./AbstractParser";
 import { WeeklyMenu } from "./WeeklyMenu";
 
+import * as winston from "winston";
+
 export class Location {
-	private nameAt: string;
-	private url: string;
+	protected logger = new winston.Logger({
+		level: process.env.LOG_LEVEL || "info",
+		transports: [
+			new winston.transports.Console({
+				label: "AbstractParser"
+			})
+		]
+	});
+
+	private nameAt: string = undefined;
+	private url: string = undefined;
 	private parser: AbstractParser;
 	private weeklyMenu: WeeklyMenu = new WeeklyMenu();
 
@@ -45,7 +56,24 @@ export class Location {
 		this.weeklyMenu = weeklyMenu;
 	}
 
-	public loadWeeklyMenu(): void {
-		this.setWeeklyMenu(this.getParser().parseWeeklyMenu());
+	public loadWeeklyMenu(html?: string): void {
+		let parser: AbstractParser = this.getParser();
+		if (parser) {
+			if (html) {
+				parser.setHtml(html)
+			}
+
+			this.logger.debug("parsing weekly menu");
+			let weeklyMenu: WeeklyMenu = parser.parseWeeklyMenu();
+			if (weeklyMenu) {
+				this.setWeeklyMenu(weeklyMenu);
+			}
+			else {
+				this.logger.error("error parsing weekly menu");
+			}
+		}
+		else {
+			this.logger.error("no parser");
+		}
 	}
 }

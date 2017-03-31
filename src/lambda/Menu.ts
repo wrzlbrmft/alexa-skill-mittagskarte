@@ -1,5 +1,5 @@
 export class Menu {
-	private name: string;
+	private name: string = undefined;
 
 	public constructor(name: string) {
 		this.setName(name);

@@ -22,93 +22,135 @@ export class ParserCrowns extends AbstractParser {
 	}
 
 	public parseStartDate(): string {
-		let startDate: string = "YYYY-MM-DD";
-		let $ = cheerio.load(this.getHtml());
+		try {
+			let startDate: string = undefined;
+			let $ = cheerio.load(this.getHtml());
 
-		$("#main-content p").each((index, element) => {
-			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
-			let textString = S(text).trim(); // trim
+			$("#main-content p").each((index, element) => {
+				let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+				let textString = S(text).trim(); // trim
 
-			if (0 == textString.s.toLowerCase().indexOf("in der woche von ")) {
-				let startDateString = textString.between("oche von ", " –")
-					.replaceAll("2016", "2017"); // fix wrong year
-				let startDateMoment = moment(startDateString.trim().s, "DD.MM.YYYY", "de");
+				this.logger.silly("found potential start date => '%s'", textString.s);
 
-				startDate = startDateMoment.format("YYYY-MM-DD");
-			}
-		});
+				if (0 == textString.s.toLowerCase().indexOf("in der woche von ")) {
+					let startDateString = textString.between("oche von ", " –")
+						.replaceAll("2016", "2017"); // fix wrong year
+					this.logger.debug("found start date string => '%s'", startDateString.s);
 
-		return startDate;
+					let format: string = "DD.MM.YYYY";
+					this.logger.debug("converting to date (format='%s')", format);
+					try {
+						let startDateMoment = moment(startDateString.trim().s, format, "de");
+						startDate = startDateMoment.format("YYYY-MM-DD");
+						this.logger.debug("date => '%s'", startDate);
+					}
+					catch (e) {
+						this.logger.error("error converting to date (%s)", e.toString());
+					}
+				}
+			});
+
+			return startDate;
+		}
+		catch (e) {
+			this.logger.error("error parsing start date (%s)", e.toString());
+		}
+
+		return undefined;
 	}
 
 	public parseDay(weekday: Weekday): Array<Menu> {
 		let day: Array<Menu> = [];
-		let $ = cheerio.load(this.getHtml());
 
 		function addMenuToDay(menuName: string) {
-			let menuNameString = S(menuName)
-				.decodeHTMLEntities()	// decode HTML entities
-				.replaceAll("“", "\"")	// use regular quotes instead of typographic quotes
-				.replaceAll("”", "\"")	// use regular quotes instead of typographic quotes
-				.chompLeft("1.")		// remove "1." at the beginning
-				.chompLeft("2.")		// remove "2." at the beginning
-				.trimLeft()				// trim at the beginning
-				.collapseWhitespace();	// collapse whitespace
+			if (menuName) {
+				let menuNameString = S(menuName)
+					.decodeHTMLEntities()	// decode HTML entities
+					.replaceAll("“", "\"")	// use regular quotes instead of typographic quotes
+					.replaceAll("”", "\"")	// use regular quotes instead of typographic quotes
+					.chompLeft("1.")		// remove "1." at the beginning
+					.chompLeft("2.")		// remove "2." at the beginning
+					.trimLeft()				// trim at the beginning
+					.collapseWhitespace();	// collapse whitespace
 
-			if (!menuNameString.isEmpty()) {
-				day.push(new Menu(menuNameString.s));
+				if (!menuNameString.isEmpty()) {
+					this.logger.debug("found menu => '%s'", menuNameString.s);
+					day.push(new Menu(menuNameString.s));
+				}
 			}
 		}
 
-		let isWeekday: boolean = false;
-		let menuName: string = "";
-		$("#main-content p,#main-content h3").each((index, element) => {
-			let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
-			let textString = S(text).trim(); // trim
+		try {
+			let $ = cheerio.load(this.getHtml());
 
-			if ("p" == element.name.toLowerCase()) {
-				if (isWeekday) {
-					if (
-						textString.startsWith("1.") || textString.startsWith("2.")
-						|| "oder" == textString.s.toLowerCase() || textString.isEmpty()
-					) {
-						// if line is a new menu or a separator
+			let isWeekday: boolean = false;
+			let menuName: string = undefined;
+			$("#main-content p,#main-content h3").each((index, element) => {
+				let text: string = $(element).text().replace(/(\r?\n|\r)/g, " "); // remove newlines
+				let textString = S(text).trim(); // trim
 
-						addMenuToDay(menuName);
-						menuName = "";
+				if ("p" == element.name.toLowerCase()) {
+					if (isWeekday) {
+						if (
+							textString.startsWith("1.") || textString.startsWith("2.")
+							|| "oder" == textString.s.toLowerCase() || textString.isEmpty()
+						) {
+							// line starts a new menu or is a separator
 
-						if (!("oder" == textString.s.toLowerCase() || textString.isEmpty())) {
-							// if line is not a separator
-							menuName = textString.s;
+							// just in case of a pending menu, try to add it
+							addMenuToDay.call(this, menuName);
+							menuName = "";
+
+							if (!("oder" == textString.s.toLowerCase() || textString.isEmpty())) {
+								// line is not a separator
+
+								// start new menu
+								menuName = textString.s;
+							}
+						}
+						else {
+							// line continues a pending menu (somebody hit ENTER inside a menu...)
+
+							// append to pending menu
+							menuName += (" " + textString.s);
 						}
 					}
-					else {
-						// if line continues with a menu
+				}
 
-						menuName += (" " + textString.s);
+				if ("h3" == element.name.toLowerCase()) {
+					if (isWeekday) {
+						// just in case of a pending menu, try to add it
+						addMenuToDay.call(this, menuName);
+						menuName = "";
+					}
+
+					this.logger.silly("found potential weekday => '%s'", textString.s);
+
+					if (textString.s.toLowerCase() == weekdays.get(weekday).toLowerCase()) {
+						this.logger.debug("found beginning of weekday ('%s')", textString.s);
+						isWeekday = true;
+					}
+					else {
+						if (isWeekday) {
+							this.logger.debug("found end of weekday");
+						}
+						isWeekday = false;
 					}
 				}
+			});
+
+			if (isWeekday) {
+				// just in case of a pending menu, try to add it
+				addMenuToDay.call(this, menuName);
+				// menuName = "";
 			}
 
-			if ("h3" == element.name.toLowerCase()) {
-				if (isWeekday) {
-					// pending menu?
-
-					addMenuToDay(menuName);
-					menuName = "";
-				}
-
-				isWeekday = (textString.s.toLowerCase() == weekdays.get(weekday).toLowerCase());
-			}
-		});
-
-		if (isWeekday) {
-			// pending menu?
-
-			addMenuToDay(menuName);
-			// menuName = "";
+			return day;
+		}
+		catch (e) {
+			this.logger.error("error parsing day (%s)", e.toString());
 		}
 
-		return day;
+		return undefined;
 	}
 }
