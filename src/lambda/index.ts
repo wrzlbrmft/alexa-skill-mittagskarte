@@ -135,35 +135,47 @@ let handlers = {
 
 
 
+								logger.info("speechOutput='%s'", speechOutput);
+								this.emit(":tell", speechOutput);
+
+								this.context.succeed();
 							}
 							else {
 								logger.warn("no menu(s) on day");
 								speechOutput = "Leider kann ich für diesen Tag auf der Wochenkarte nichts finden.";
+								this.emit(":tell", speechOutput);
+
+								this.context.succeed();
 							}
 						}
 						else {
 							logger.error("error getting day");
 							speechOutput = "Leider kann ich für diesen Tag auf der Wochenkarte nichts finden.";
+							this.emit(":tell", speechOutput);
+
+							this.context.succeed();
 						}
 					}
 					else {
 						logger.error("error getting weekly menu");
 						speechOutput = "Leider ist beim Verarbeiten der Wochenkarte ein Fehler aufgetreten.";
+						this.emit(":tell", speechOutput);
+
+						this.context.succeed();
 					}
 				});
 			}
 			else {
 				logger.error("location not found");
+
+				this.context.fail();
 			}
 		}
 		catch (e) {
 			logger.error(e.toString());
+
+			this.context.fail();
 		}
-
-		logger.info("speechOutput='%s'", speechOutput);
-		this.emit(":tell", speechOutput);
-
-		this.context.succeed();
 	}
 };
 
