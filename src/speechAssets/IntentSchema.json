@@ -10,6 +10,14 @@
 				{
 					"name": "Location",
 					"type": "LOCATION"
+				},
+				{
+					"name": "Preposition",
+					"type": "PREPOSITION"
+				},
+				{
+					"name": "Toeat",
+					"type": "TOEAT"
 				}
 			]
 		}
