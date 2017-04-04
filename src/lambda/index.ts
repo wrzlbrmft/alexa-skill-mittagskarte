@@ -32,12 +32,12 @@ locations.put("beispiel",
 		null,
 		new ParserExample()));
 
-locations.multiPut(["alte raffinerie", "storchenburg"],
+locations.multiPut(["alte raffinerie", "alten raffinerie", "storchenburg"],
 	new Location("in der Alten Raffinerie",
 		"http://www.alte-raffinerie.de/index.php/Essen.html",
 		new ParserAlteRaffinerie()));
 
-locations.multiPut(["alter wirt", "alter wirt in hohenbrunn"],
+locations.multiPut(["alter wirt", "alten wirt", "alter wirt in hohenbrunn", "alten wirt in hohenbrunn"],
 	new Location("beim Alten Wirt in Hohenbrunn",
 		"http://www.alterwirt-hohenbrunn.com/speisen-a-getraenke/-wochenkarte.html",
 		new ParserAlterWirt()));
