@@ -155,7 +155,7 @@ let handlers = {
 							logger.error("error getting day ('%s')", dateSlot.value);
 
 							speechOutput = `Leider kann ich
-								den Tag auf der Wochenkarte ${location.getNameAt()} nichts finden.`;
+								den Tag auf der Wochenkarte ${location.getNameAt()} nicht finden.`;
 							logger.info("speechOutput='%s'", speechOutput);
 							this.emit(":tell", speechOutput);
 
