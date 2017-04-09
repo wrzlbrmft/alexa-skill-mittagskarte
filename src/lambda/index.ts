@@ -47,7 +47,7 @@ locations.put("crowns",
 		"http://www.crownsrestaurant.de/wochenkarte/",
 		new ParserCrowns()));
 
-locations.put("nachtkantine",
+locations.multiPut(["nachtkantine", "nacht kantine"],
 	new Location("in der Nachtkantine",
 		"http://www.nachtkantine.de/mittagskarte/",
 		new ParserNachtkantine()));
