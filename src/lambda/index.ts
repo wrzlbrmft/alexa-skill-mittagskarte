@@ -142,8 +142,10 @@ let handlers = {
 							}
 							else {
 								logger.warn("no menu(s) on day");
+
 								speechOutput = `Leider kann ich
 									an dem Tag auf der Wochenkarte ${location.getNameAt()} nichts finden.`;
+								logger.info("speechOutput='%s'", speechOutput);
 								this.emit(":tell", speechOutput);
 
 								this.context.succeed();
@@ -151,8 +153,10 @@ let handlers = {
 						}
 						else {
 							logger.error("error getting day");
+
 							speechOutput = `Leider kann ich
 								an dem Tag auf der Wochenkarte ${location.getNameAt()} nichts finden.`;
+							logger.info("speechOutput='%s'", speechOutput);
 							this.emit(":tell", speechOutput);
 
 							this.context.succeed();
@@ -160,7 +164,9 @@ let handlers = {
 					}
 					else {
 						logger.error("error getting weekly menu");
+
 						speechOutput = "Leider ist beim Verarbeiten der Wochenkarte ein Fehler aufgetreten.";
+						logger.info("speechOutput='%s'", speechOutput);
 						this.emit(":tell", speechOutput);
 
 						this.context.succeed();
