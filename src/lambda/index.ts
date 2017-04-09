@@ -96,8 +96,12 @@ let handlers = {
 									// today
 									speechOutput = "Heute";
 								}
+								else if (moment().add(1, "days").isSame(dateSlot.value, "day")) {
+									// tomorrow
+									speechOutput = "Morgen";
+								}
 								else {
-									// not today
+									// any other day
 									speechOutput = `Am ${weekdays.get(moment(dateSlot.value).weekday())}`;
 								}
 								speechOutput += ` gibt es ${location.getNameAt()}`;
@@ -143,8 +147,8 @@ let handlers = {
 							else {
 								logger.warn("no menu(s) on day");
 
-								speechOutput = `Leider kann ich
-									an dem Tag auf der Wochenkarte ${location.getNameAt()} nichts finden.`;
+								speechOutput = `Leider kann ich für
+									den Tag auf der Wochenkarte ${location.getNameAt()} nichts finden.`;
 								logger.info("speechOutput='%s'", speechOutput);
 								this.emit(":tell", speechOutput);
 
