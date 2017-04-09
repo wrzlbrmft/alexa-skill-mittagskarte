@@ -104,6 +104,7 @@ let handlers = {
 									// any other day
 									speechOutput = `Am ${weekdays.get(moment(dateSlot.value).weekday())}`;
 								}
+
 								speechOutput += ` gibt es ${location.getNameAt()}`;
 
 								if (1 == day.length) {
