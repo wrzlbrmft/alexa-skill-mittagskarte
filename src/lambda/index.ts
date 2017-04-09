@@ -152,10 +152,10 @@ let handlers = {
 							}
 						}
 						else {
-							logger.error("error getting day");
+							logger.error("error getting day ('%s')", dateSlot.value);
 
 							speechOutput = `Leider kann ich
-								an dem Tag auf der Wochenkarte ${location.getNameAt()} nichts finden.`;
+								den Tag auf der Wochenkarte ${location.getNameAt()} nichts finden.`;
 							logger.info("speechOutput='%s'", speechOutput);
 							this.emit(":tell", speechOutput);
 
@@ -165,7 +165,8 @@ let handlers = {
 					else {
 						logger.error("error getting weekly menu");
 
-						speechOutput = "Leider ist beim Verarbeiten der Wochenkarte ein Fehler aufgetreten.";
+						speechOutput = `Leider ist beim Verarbeiten der Wochenkarte
+							${location.getNameAt()} ein Fehler aufgetreten.`;
 						logger.info("speechOutput='%s'", speechOutput);
 						this.emit(":tell", speechOutput);
 
@@ -174,9 +175,13 @@ let handlers = {
 				});
 			}
 			else {
-				logger.error("location not found");
+				logger.error("location not found ('%s')", locationSlot.value);
 
-				this.context.fail();
+				speechOutput = `Leider kenne ich die Location "${locationSlot.value}" nicht.`;
+				logger.info("speechOutput='%s'", speechOutput);
+				this.emit(":tell", speechOutput);
+
+				this.context.succeed();
 			}
 		}
 		catch (e) {
