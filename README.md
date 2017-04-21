@@ -89,7 +89,7 @@ Feel free to join and help me improve this skill. Here are a few ideas:
 
 * MORE LOCATIONS!!!
 * Proper error handling...
-* Integration with the Alexa app
+* Integration with the Alexa app (cards)
 * Translate it into other languages
 
 ## License

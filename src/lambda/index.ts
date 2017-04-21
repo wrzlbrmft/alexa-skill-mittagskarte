@@ -32,7 +32,7 @@ locations.put("beispiel",
 		null,
 		new ParserExample()));
 
-locations.multiPut(["alte raffinerie", "alten raffinerie", "storchenburg"],
+locations.multiPut(["alte raffinerie", "alten raffinerie", "storch", "storchenburg"],
 	new Location("in der Alten Raffinerie",
 		"http://www.alte-raffinerie.de/index.php/Essen.html",
 		new ParserAlteRaffinerie()));
@@ -148,6 +148,7 @@ let handlers = {
 							else {
 								logger.warn("no menu(s) on day");
 
+								// TODO: add more precise day/date specification
 								speechOutput = `Leider kann ich für
 									den Tag auf der Wochenkarte ${location.getNameAt()} nichts finden.`;
 								logger.info("speechOutput='%s'", speechOutput);
@@ -159,6 +160,7 @@ let handlers = {
 						else {
 							logger.error("error getting day ('%s')", dateSlot.value);
 
+							// TODO: add more precise day/date specification
 							speechOutput = `Leider kann ich
 								den Tag auf der Wochenkarte ${location.getNameAt()} nicht finden.`;
 							logger.info("speechOutput='%s'", speechOutput);
