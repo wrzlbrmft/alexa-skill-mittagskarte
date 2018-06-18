@@ -13,6 +13,8 @@ Mittagessen gibt."_
 
 ## Supported Locations
 
+**NOTE:** In the meantime, some locations have closed permanently.
+
 * Alte Raffinerie (former Storchenburg), http://www.alte-raffinerie.de/
 * Crowns, http://www.crownsrestaurant.de/
 * NachtKantine, http://www.nachtkantine.de/

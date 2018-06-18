@@ -1,13 +1,14 @@
 {
-	"compilerOptions": {
-		"rootDir": "lambda",
-		"outDir": "build",
-		"target": "es3",
-		"sourceMap": false,
-		"module": "commonjs",
-		"moduleResolution": "node"
-	},
-	"exclude": [
-		"node_modules"
-	]
+    "compilerOptions": {
+        "rootDir": "lambda",
+        "outDir": "build",
+        "target": "es5",
+        "lib": ["es5", "es6", "dom"],
+        "sourceMap": false,
+        "module": "commonjs",
+        "moduleResolution": "node"
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }

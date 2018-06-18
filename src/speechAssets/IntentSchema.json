@@ -1,25 +1,25 @@
 {
-	"intents": [
-		{
-			"intent": "MenusOnDateAtLocation",
-			"slots": [
-				{
-					"name": "Date",
-					"type": "AMAZON.DATE"
-				},
-				{
-					"name": "Location",
-					"type": "LOCATION"
-				},
-				{
-					"name": "Preposition",
-					"type": "PREPOSITION"
-				},
-				{
-					"name": "Toeat",
-					"type": "TOEAT"
-				}
-			]
-		}
-	]
+    "intents": [
+        {
+            "intent": "MenusOnDateAtLocation",
+            "slots": [
+                {
+                    "name": "Date",
+                    "type": "AMAZON.DATE"
+                },
+                {
+                    "name": "Location",
+                    "type": "LOCATION"
+                },
+                {
+                    "name": "Preposition",
+                    "type": "PREPOSITION"
+                },
+                {
+                    "name": "Toeat",
+                    "type": "TOEAT"
+                }
+            ]
+        }
+    ]
 }

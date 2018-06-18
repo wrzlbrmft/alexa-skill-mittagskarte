@@ -1,8 +1,8 @@
-MenusOnDateAtLocation	was es {Date} {Preposition} {Location} gibt
-MenusOnDateAtLocation	was es {Date} {Preposition} {Location} {Toeat} gibt
+MenusOnDateAtLocation    was es {Date} {Preposition} {Location} gibt
+MenusOnDateAtLocation    was es {Date} {Preposition} {Location} {Toeat} gibt
 
-MenusOnDateAtLocation	was gibt es {Date} {Preposition} {Location}
-MenusOnDateAtLocation	was gibt es {Date} {Preposition} {Location} {Toeat}
+MenusOnDateAtLocation    was gibt es {Date} {Preposition} {Location}
+MenusOnDateAtLocation    was gibt es {Date} {Preposition} {Location} {Toeat}
 
-MenusOnDateAtLocation	was gibts {Date} {Preposition} {Location}
-MenusOnDateAtLocation	was gibts {Date} {Preposition} {Location} {Toeat}
+MenusOnDateAtLocation    was gibts {Date} {Preposition} {Location}
+MenusOnDateAtLocation    was gibts {Date} {Preposition} {Location} {Toeat}

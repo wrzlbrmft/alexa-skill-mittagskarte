@@ -1,13 +1,13 @@
 import { NumberMap } from "./NumberMap";
 
 export enum Weekday {
-	Sunday = 0,
-	Monday,
-	Tuesday,
-	Wednesday,
-	Thursday,
-	Friday,
-	Saturday
+    Sunday = 0,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday
 }
 
 export const weekdays: NumberMap<string> = new NumberMap<string>();
